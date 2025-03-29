@@ -1,0 +1,171 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 4541f3e4c0d7a174aac07d0c3e1d39fe
+  m_SerializeEntries:
+  - m_GUID: 011797a5ac14e4f01a918fd5023148ef
+    m_Address: Assets/_Game/Sprites/Layer Lab/GUI Pro-CasualGame/ResourcesData/Sprites/Components/Icon_ItemIcons/512/Icon_Emergency_Bag.Png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Cleanse
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 12b15b11eb9264f46ad0b9ee353202bf
+    m_Address: Assets/_Game/Addressables/Themes/Dungeon.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Theme
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a31f19f9c43c4805a15edee26a0a1eb
+    m_Address: Assets/_Game/Sprites/Layer Lab/GUI Pro-CasualGame/ResourcesData/Sprites/Components/Icon_ItemIcons/512/Icon_Bomb_LandMine.Png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ShortPenalty
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20ef4a07d0568124b823b64030602c43
+    m_Address: Assets/_Game/Addressables/Themes/Cyberpunk.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Theme
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 284b818e67e914240abecc2ade6eb367
+    m_Address: Assets/_Game/Addressables/Themes/Haunted.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Theme
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2cda990e2423bbf4892e6590ba056729
+    m_Address: Assets/_Game/Scenes/Gameplay.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a01b20c1dcc44b48b32c36782b2bf9a
+    m_Address: Assets/_Game/Sprites/Layer Lab/GUI Pro-CasualGame/ResourcesData/Sprites/Components/Icon_ItemIcons/512/Icon_Hourglass.Png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - TimeFreeze
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c40edfcbe1d5e34b8d6bc475f87993d
+    m_Address: Assets/Addressables/ospd.txt
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ospd
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5e7a4b7d940eaba458928c5397392645
+    m_Address: Assets/_Game/Addressables/Themes/Sky.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Theme
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 610a6c9ccee774af9b9f33864bc8d434
+    m_Address: Assets/_Game/Sprites/Layer Lab/GUI Pro-CasualGame/ResourcesData/Sprites/Components/Icon_ItemIcons/512/Icon_Bomb_Dynamite.Png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d61260756675114f821459f41d6b6bd
+    m_Address: Assets/_Game/Addressables/Themes/Ruins.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Theme
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 74b289a74cd01d84686e3284e65c5156
+    m_Address: Assets/_Game/Addressables/Themes/City.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Theme
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 806a01e5fe238744a84fe85287e28a4d
+    m_Address: Assets/_Game/Addressables/Themes/Space.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Theme
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88692c05b2f2a4440b300b12e4c280fc
+    m_Address: Assets/_Game/Scenes/Startup.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 91b88172e63074a5f91e8b7512f21903
+    m_Address: Assets/_Game/Sprites/Layer Lab/GUI Pro-CasualGame/ResourcesData/Sprites/Components/Icon_ItemIcons/512/Icon_Book.Png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - RevealWord
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0b6d290ff1c14c18b210a0e1da9959c
+    m_Address: Assets/_Game/Sprites/Layer Lab/GUI Pro-CasualGame/ResourcesData/Sprites/Components/Icon_ItemIcons/512/Icon_Potion02_Red.Png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - DoubleScore
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2646f4f567c14e9ba80f11f76857220
+    m_Address: Assets/_Game/Sprites/Layer Lab/GUI Pro-CasualGame/ResourcesData/Sprites/Components/Icon_ItemIcons/512/Icon_Boots.Png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ShortBonus
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab8f4bfba00645647aaca802269fba86
+    m_Address: Assets/_Game/Addressables/Themes/Garden.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Theme
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bead3956158ca43ebb6a0893b38a001e
+    m_Address: Assets/_Game/Sprites/Layer Lab/GUI Pro-CasualGame/ResourcesData/Sprites/Components/Icon_ItemIcons/512/Icon_Booster.Png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - LongBonus
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bf3787589a8b943779f60a594c934e4e
+    m_Address: Assets/_Game/Sprites/Layer Lab/GUI Pro-CasualGame/ResourcesData/Sprites/Components/Icon_ItemIcons/512/Icon_Bomb_Bomb.Png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Grief
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0b0c354c78355243bf3dc978565500c
+    m_Address: Assets/_Game/Scenes/Home.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ccce40428d62941e4ad6765e6de7df3a
+    m_Address: Assets/_Game/Sprites/Layer Lab/GUI Pro-CasualGame/ResourcesData/Sprites/Components/Icon_ItemIcons/512/Icon_Cards.Png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Shuffle
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d6f52cd395dbd0840b30d3f5a05ac7f7
+    m_Address: Assets/_Game/Addressables/Themes/Midnight.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Theme
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dbd76107f12d3ea42893d9ca6034f465
+    m_Address: Assets/_Game/Addressables/Themes/Fuji.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Theme
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f18d59f00f6774a3e8cdc78b5e3d1676
+    m_Address: Assets/_Game/Sprites/Layer Lab/GUI Pro-CasualGame/ResourcesData/Sprites/Components/Icon_ItemIcons/512/Icon_Map.Png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ExtraTurn
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a3880b8fb25b90a4cada257dda67b2f5, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 40ee458663444c34393ccb76ad66e0cf, type: 2}
+    - {fileID: 11400000, guid: df0fc791a1183554baae59bde53c3098, type: 2}

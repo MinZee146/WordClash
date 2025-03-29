@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Avatars
+  m_EditorClassIdentifier: 
+  m_GroupName: Avatars
+  m_Data:
+    m_SerializedData: []
+  m_GUID: b9c534dc6a5d81a4fad10886835f85e7
+  m_SerializeEntries:
+  - m_GUID: 1ddfe5673ee5d4fcd90a7f06e4a81569
+    m_Address: Assets/_Game/Sprites/Avatars/01.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Male01
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 493420c46b6c949ee8fd5d20b8f3ec67
+    m_Address: Assets/_Game/Sprites/Avatars/08.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Male08
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72fa3be150b314b7996f52b676fdbc2a
+    m_Address: Assets/_Game/Sprites/Avatars/26.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Male26
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7c62962134aed4e4b85c8fd54b81f3a1
+    m_Address: Assets/_Game/Sprites/Avatars/19.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Female19
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7dcfa62f202c54044bb935321e9ff295
+    m_Address: Assets/_Game/Sprites/Avatars/14.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Female14
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9bd434a70a74e41fbaed9a5e9ff6d25b
+    m_Address: Assets/_Game/Sprites/Avatars/20.png
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Female20
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a3880b8fb25b90a4cada257dda67b2f5, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d4f6a6925fc535b4fb75d6caab23bfc3, type: 2}
+    - {fileID: 11400000, guid: 509ad370e2474834e9ef446f6353f4b7, type: 2}
