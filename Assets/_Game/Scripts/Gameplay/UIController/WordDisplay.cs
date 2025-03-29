@@ -48,20 +48,17 @@ public class WordDisplay : Singleton<WordDisplay>
             {
                 _wordDisplayText.text = $"{currentWord} <color={UpdateScore(ref currentScore, selectingTiles)}>({currentScore})</color>";
                 Validate(lineList, selectingTiles);
-                GameUIController.Instance.ToggleHintAndConfirm(false);
             }
             else
             {
                 _wordDisplayText.text = currentWord;
                 Invalidate(lineList, selectingTiles);
-                GameUIController.Instance.ToggleHintAndConfirm();
             }
 
             UpdateWordDisplayPosition(tile);
         }
         else
         {
-            GameUIController.Instance.ToggleHintAndConfirm();
             UndisplayWordAndScore();
             Invalidate(lineList, selectingTiles);
         }
@@ -70,9 +67,7 @@ public class WordDisplay : Singleton<WordDisplay>
     private string UpdateScore(ref int currentScore, List<Tile> selectingTiles)
     {
         currentScore = selectingTiles.Count == 0 ? 0 : selectingTiles.Sum(tile => tile.Score) * selectingTiles.Count;
-        // _currentTrueScore = _currentScore;
-        PowerUpsManager.Instance.CheckForPowerUpScoring(ref currentScore, selectingTiles.Count());
-
+       
         var scoreColor = currentScore switch
         {
             <= 10 => "#EEEEEE",

@@ -59,7 +59,7 @@ public class Tile : MonoBehaviour
         _innerCircle.transform.DOComplete();
         _innerCircle.transform.DOShakePosition(0.5f, 10f, 10, 75, false, true, ShakeRandomnessMode.Harmonic);
 
-        AudioManager.Instance.PlaySFX("TileSelect");
+        // AudioManager.Instance.PlaySFX("TileSelect");
     }
 
     public void Deselect()
@@ -74,7 +74,7 @@ public class Tile : MonoBehaviour
 
     public void ValidateWord()
     {
-        _innerCircle.color = GameFlowManager.Instance.IsPlayerTurn ? _validatedTileColor : _opponentValidColor;
+        _innerCircle.color = _validatedTileColor;
         _letterText.color = _scoreText.color = _lightText;
     }
 
@@ -96,7 +96,7 @@ public class Tile : MonoBehaviour
 
             if (!isLastChar)
             {
-                AudioManager.Instance.PlaySFX("Hint");
+                // AudioManager.Instance.PlaySFX("Hint");
             }
         });
     }
@@ -109,11 +109,11 @@ public class Tile : MonoBehaviour
 
         if (random > 0.5f)
         {
-            AudioManager.Instance.PlaySFX("Pop1");
+            // AudioManager.Instance.PlaySFX("Pop1");
         }
         else
         {
-            AudioManager.Instance.PlaySFX("Pop2");
+            // AudioManager.Instance.PlaySFX("Pop2");
         }
 
         Destroy(gameObject);

@@ -49,18 +49,13 @@ public class Board : Singleton<Board>
     public void NewGame()
     {
         GenerateBoard();
-        PowerUpsManager.Instance.Initialize();
-        Notifier.Instance.OnTurnChanged();
 
         if (PlayerPrefs.GetInt(GameConstants.PLAYER_PREFS_FIRST_LOGIN, 1) == 0)
         {
             return;
         }
-        else
-        {
-            PlayerPrefs.SetInt(GameConstants.PLAYER_PREFS_FIRST_LOGIN, 0);
-            PopUpsManager.Instance.ToggleInstructionPopUp(true);
-        }
+       
+        PlayerPrefs.SetInt(GameConstants.PLAYER_PREFS_FIRST_LOGIN, 0);
     }
 
     private void OnConfigsLoaded()
@@ -131,37 +126,19 @@ public class Board : Singleton<Board>
     #region InputHandle
     private void HandleInput()
     {
-        if (GameFlowManager.Instance.IsPlayerTurn && UIManager.Instance.CheckCanInteractBoard() && !SRDebug.Instance.IsDebugPanelVisible)
+        if (Input.GetMouseButtonDown(0))
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (UIManager.Instance.IsInspectingBoard)
-                {
-                    if (UIManager.Instance.InspectPanel == "PowerUps")
-                    {
-                        UIManager.Instance.ToggleInspectPowerUps();
-                    }
+            HandleTouching();
+        }
 
-                    if (UIManager.Instance.InspectPanel == "Replace")
-                    {
-                        UIManager.Instance.ToggleInspectReplace();
-                    }
-                }
-                else
-                {
-                    HandleTouching();
-                }
-            }
+        if (Input.GetMouseButtonUp(0))
+        {
+            IsDragging = false;
+        }
 
-            if (Input.GetMouseButtonUp(0))
-            {
-                IsDragging = false;
-            }
-
-            if (IsDragging)
-            {
-                HandleDragging();
-            }
+        if (IsDragging)
+        {
+            HandleDragging();
         }
     }
 
@@ -171,7 +148,6 @@ public class Board : Singleton<Board>
 
         if (!RectTransformUtility.RectangleContainsScreenPoint(GameUIController.Instance.ConfirmButtonRect(), pos))
         {
-            GameUIController.Instance.ToggleHintAndConfirm();
             ResetUI();
 
             if (RectTransformUtility.RectangleContainsScreenPoint(GameUIController.Instance.BoardRectTransform(), pos))
@@ -208,11 +184,6 @@ public class Board : Singleton<Board>
                 HandleTileSelection(tile);
             }
 
-            if (PowerUpsManager.Instance.CheckReplaceLetter)
-            {
-                HandleTileReplace?.Invoke();
-            }
-
             break;
         }
     }
@@ -243,7 +214,6 @@ public class Board : Singleton<Board>
             DisconnectLastLine();
             _currentWord = _currentWord?[..^1];
             WordDisplay.Instance.UpdateWordState(tile, _currentWord, ref _currentScore, _lineList, _selectingTiles);
-            AudioManager.Instance.PlaySFX("TileSelect");
         }
         else
         {
@@ -314,63 +284,22 @@ public class Board : Singleton<Board>
     public void ConfirmSelection()
     {
         if (!GameDictionary.Instance.CheckWord(_selectedWord)) return;
-        AudioManager.Instance.StopSideAudio();
 
         Utils.Log($"Player Selected: {_selectedWord} ({_currentScore})");
-        Notifier.Instance.CaculateAverageTimePercentUsed();
 
         Timing.RunCoroutine(PopAndRefresh());
     }
 
     public IEnumerator<float> PopAndRefresh()
     {
-        Notifier.Instance.StopCountdown();
-
-        GameUIController.Instance.ToggleHintAndConfirm(display: false);
-        BottomBar.Instance.SetSidePowerUpState(false);
-        UIManager.Instance.IsInteractable = false;
-
-        WordFinder.Instance.DeleteCurrentHint();
         WordDisplay.Instance.UndisplayWordAndScore();
         ResetUI();
 
         yield return Timing.WaitUntilDone(Timing.RunCoroutine(PopSelectedTiles()));
-        yield return Timing.WaitUntilDone(Timing.RunCoroutine(
-            ScorePopUp.Instance.ScoreAttract(
-                _lastSelectedTiles.Count(),
-                _lastSelectedTiles[^1].transform,
-                action: () =>
-        {
-            PlayerStatsManager.Instance.UpdateStats(_selectedWord, _currentWord, _currentScore);
-        })));
-        yield return Timing.WaitUntilDone(Timing.RunCoroutine(UIManager.Instance.ShowPopUp(_selectedWord, _currentScore)));
 
         ResetData();
-        PowerUpsManager.Instance.CleanPowerUp();
 
         yield return Timing.WaitUntilDone(Timing.RunCoroutine(RandomizeOneTile()));
-        yield return Timing.WaitUntilDone(Timing.RunCoroutine(GameManager.Instance.CheckForGameOver()));
-
-        if (!GameManager.Instance.IsGameOver)
-        {
-            if (!PowerUpsManager.Instance.CheckExtraTurn)
-            {
-                yield return Timing.WaitForSeconds(0.5f);
-                GameFlowManager.Instance.NextTurn();
-            }
-            else
-            {
-                if (GameFlowManager.Instance.IsPlayerTurn)
-                {
-                    BottomBar.Instance.SetSidePowerUpState(true);
-                }
-
-                Notifier.Instance.BeginCountdown();
-            }
-        }
-
-        UIManager.Instance.IsInteractable = true;
-        GameUIController.Instance.ToggleHintAndConfirm();
     }
 
     private IEnumerator<float> PopSelectedTiles()
@@ -436,82 +365,6 @@ public class Board : Singleton<Board>
 
             yield return Timing.WaitForSeconds(0.75f);
         }
-    }
-    #endregion
-
-    #region OpponentSelect
-    public IEnumerator<float> OpponentSelect(string word)
-    {
-        var firstPos = FoundWords[word].Path.First();
-        var previousTile = TileList.FirstOrDefault(t => t.Row == firstPos.x && t.Column == firstPos.y);
-
-        previousTile.Select();
-        _selectingTiles.Add(previousTile);
-        _currentWord += previousTile.Letter;
-
-        foreach (var tile in from pos in FoundWords[word].Path
-                             where pos != firstPos
-                             select TileList.FirstOrDefault(t => t.Row == pos.x && t.Column == pos.y))
-        {
-            yield return Timing.WaitForSeconds(UnityEngine.Random.Range(0.2f, 0.4f));
-
-            tile.Select();
-            Connect(tile, previousTile);
-            _selectingTiles.Add(tile);
-            previousTile = tile;
-
-            _currentWord += tile.Letter;
-            WordDisplay.Instance.UpdateWordState(tile, _currentWord, ref _currentScore, _lineList, _selectingTiles);
-        }
-
-        _lastSelectedTiles = new List<Tile>(_selectingTiles);
-        Utils.Log($"Opponent Selected: {word} ({_currentScore})");
-    }
-    #endregion
-
-    #region PowerUpsHandle
-    public void ReplaceSelectingTileWith(char letter)
-    {
-        IsDragging = false;
-        UIManager.Instance.IsInteractable = false;
-        GameUIController.Instance.GameplayCanvasGroup.blocksRaycasts = false;
-
-        var tile = _selectingTiles[^1];
-        var sequence = DOTween.Sequence();
-        sequence.AppendInterval(0.5f);
-
-        var tileReplace = tile.transform.DOScale(Vector3.one * 0.1f, 0.3f).OnComplete(() =>
-        {
-            TileList.Remove(tile);
-            tile.SetTileConfig(_configManager.Configs.FirstOrDefault(tileStat => tileStat.Letter == letter));
-            TileList.Add(tile);
-            tile.transform.DOScale(Vector3.one, 0.3f);
-
-            IsDragging = true;
-            UIManager.Instance.IsInteractable = true;
-            GameUIController.Instance.GameplayCanvasGroup.blocksRaycasts = true;
-        });
-
-        sequence.Append(tileReplace);
-        sequence.Play();
-
-        Timing.RunCoroutine(GameManager.Instance.CheckForGameOver());
-    }
-
-    public void ClearHandleTileReplaceListeners()
-    {
-        HandleTileReplace = null;
-    }
-
-    public void ShuffleBoard()
-    {
-        foreach (var tile in TileList)
-        {
-            tile.SetTileConfig(GetRandomLetter());
-            tile.Deselect();
-        }
-
-        Timing.RunCoroutine(GameManager.Instance.CheckForGameOver());
     }
     #endregion
 }

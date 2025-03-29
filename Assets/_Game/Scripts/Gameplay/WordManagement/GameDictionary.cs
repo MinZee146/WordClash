@@ -10,7 +10,7 @@ public class GameDictionary : SingletonPersistent<GameDictionary>
     private Trie _wordTrie = new();
     private TextAsset _dictText;
 
-    public void Initialize()
+    private void Start()
     {
         Addressables.LoadAssetAsync<TextAsset>("ospd").Completed += OnDictionaryLoaded;
     }

@@ -20,7 +20,7 @@ public class UILine : MonoBehaviour
 
     public void Validate()
     {
-        _image.color = GameFlowManager.Instance.IsPlayerTurn ? Colors.FromHex(GameConstants.COLORS_PLAYER) : Colors.FromHex(GameConstants.COLORS_OPPONENT);
+        _image.color = Colors.FromHex(GameConstants.COLORS_PLAYER);
     }
 
     public void Invalidate()
