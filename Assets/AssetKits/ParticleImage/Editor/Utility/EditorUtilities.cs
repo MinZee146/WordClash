@@ -16,15 +16,16 @@ namespace AssetKits.ParticleImage.Editor
             [MenuItem("GameObject/UI/Particle Image", priority = MenuPriority)]
             private static void CreateButton(MenuCommand menuCommand)
             {
-                var canvas = Object.FindObjectsOfType(typeof(Canvas)).Cast<Canvas>().FirstOrDefault();
+                var canvas = Object.FindObjectsByType<Canvas>(FindObjectsSortMode.None).FirstOrDefault();
 
                 if (canvas)
                 {
-                    // Create a custom game object
                     GameObject go = new GameObject("Particle Image");
                     ParticleImage pi = go.AddComponent<ParticleImage>();
-                    pi.texture = AssetDatabase.GetBuiltinExtraResource<Texture2D>("Default-Particle.psd");
+                    Texture2D tex = AssetDatabase.GetBuiltinExtraResource<Texture2D>("Default-Particle.psd");
+                    pi.sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
                     pi.canvasRect = canvas.GetComponent<RectTransform>();
+
                     if (menuCommand.context)
                     {
                         GameObjectUtility.SetParentAndAlign(go, menuCommand.context as GameObject);
@@ -33,7 +34,7 @@ namespace AssetKits.ParticleImage.Editor
                     {
                         GameObjectUtility.SetParentAndAlign(go, canvas.gameObject);
                     }
-                    
+
                     Undo.RegisterCreatedObjectUndo(go, "Create " + go.name);
                     Selection.activeObject = go;
                 }
@@ -44,19 +45,20 @@ namespace AssetKits.ParticleImage.Editor
                     c.renderMode = RenderMode.ScreenSpaceOverlay;
                     newCanvas.AddComponent<CanvasScaler>();
                     newCanvas.AddComponent<GraphicRaycaster>();
-                    
-                    // Create a custom game object
+
                     GameObject go = new GameObject("Particle Image");
                     ParticleImage pi = go.AddComponent<ParticleImage>();
-                    pi.texture = AssetDatabase.GetBuiltinExtraResource<Texture2D>("Default-Particle.psd");
+                    Texture2D tex = AssetDatabase.GetBuiltinExtraResource<Texture2D>("Default-Particle.psd");
+                    pi.sprite = Sprite.Create(tex, new Rect(0, 0, tex.width, tex.height), new Vector2(0.5f, 0.5f));
                     pi.canvasRect = newCanvas.GetComponent<RectTransform>();
                     GameObjectUtility.SetParentAndAlign(go, newCanvas);
-                    
+
                     Undo.RegisterCreatedObjectUndo(newCanvas, "Create " + go.name);
                     Selection.activeObject = go;
                 }
-                
-                var eventSystem = Object.FindObjectsOfType(typeof(EventSystem)).Cast<EventSystem>().FirstOrDefault();
+
+                // ✅ Dùng API mới thay thế FindObjectsOfType
+                var eventSystem = Object.FindObjectsByType<EventSystem>(FindObjectsSortMode.None).FirstOrDefault();
 
                 if (eventSystem == null)
                 {
@@ -66,7 +68,7 @@ namespace AssetKits.ParticleImage.Editor
                 }
             }
         }
-        
+
         /// <summary>
         /// Set the icon for this object.
         /// </summary>
@@ -103,4 +105,3 @@ namespace AssetKits.ParticleImage.Editor
         }
     }
 }
-

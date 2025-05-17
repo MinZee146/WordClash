@@ -307,13 +307,6 @@ public class PopUpsManager : Singleton<PopUpsManager>
                 ToggleCreditsPopUp(false);
                 UIManager.Instance.ToggleCoinBarAndHomeScreen(true);
             });
-
-            var versionInfo = popUp.transform.GetChild(0).GetChild(3).GetComponent<TextMeshProUGUI>();
-#if UNITY_ANDROID
-            versionInfo.text = $"Version: {GameVersionInfo.BUILD_VERSION}\n{GameVersionInfo.BUILD_TIME}\n\n" + "© Genix Lab Company Limited";
-#elif UNITY_IOS
-            versionInfo.text = $"Version: {GameVersionInfo.BUILD_VERSION} ({GameVersionInfo.BUILD_NUMBER})\n{GameVersionInfo.BUILD_TIME}\n\n" + "© Genix Lab Company Limited";
-#endif
         });
     }
 

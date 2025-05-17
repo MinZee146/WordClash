@@ -38,7 +38,7 @@ public class Board : Singleton<Board>
 
         _board = GetComponent<RectTransform>();
         _graphicRaycaster = GetComponentInParent<GraphicRaycaster>();
-        _eventSystem = FindObjectOfType<EventSystem>();
+        _eventSystem = FindFirstObjectByType<EventSystem>();
     }
 
     private void Start()

@@ -48,7 +48,7 @@ namespace AssetKits.ParticleImage
                 _children = value;
             }
         }
-        
+
         /// <summary>
         /// Root emitter of this system.
         /// </summary>
@@ -95,22 +95,22 @@ namespace AssetKits.ParticleImage
         {
             get
             {
-                if(_mesh == null)
+                if (_mesh == null)
                 {
                     _mesh = new Mesh();
                     _mesh.MarkDynamic();
                 }
-                
+
                 return _mesh;
             }
         }
-        
+
         private Mesh.MeshDataArray _meshDataArray;
         private Mesh.MeshData _meshData;
-        
+
         private Mesh.MeshDataArray _trailMeshDataArray;
         private Mesh.MeshData _trailMeshData;
-        
+
         [SerializeField]
         private Simulation _space = Simulation.Local;
         public Simulation space
@@ -121,7 +121,7 @@ namespace AssetKits.ParticleImage
                 _space = value;
             }
         }
-        
+
         [SerializeField]
         private TimeScale _timeScale = TimeScale.Normal;
         public TimeScale timeScale
@@ -146,7 +146,7 @@ namespace AssetKits.ParticleImage
                 _emitterConstraintEnabled.enabled = value;
             }
         }
-        
+
         [SerializeField]
         private Transform _emitterConstraintTransform;
         public Transform emitterConstraintTransform
@@ -157,7 +157,7 @@ namespace AssetKits.ParticleImage
                 _emitterConstraintTransform = value;
             }
         }
-        
+
         [SerializeField]
         private EmitterShape _shape = EmitterShape.Circle;
         /// <summary>
@@ -168,10 +168,10 @@ namespace AssetKits.ParticleImage
             get => _shape;
             set => _shape = value;
         }
-        
+
         [SerializeField]
         private SpreadType _spread = SpreadType.Random;
-        
+
         /// <summary>
         ///  <para>The type of spread to use when emitting particles.</para>
         /// </summary>
@@ -180,10 +180,10 @@ namespace AssetKits.ParticleImage
             get => _spread;
             set => _spread = value;
         }
-        
+
         [SerializeField]
         private float _spreadLoop = 1;
-        
+
         /// <summary>
         /// Loop count for spread.
         /// </summary>
@@ -192,10 +192,10 @@ namespace AssetKits.ParticleImage
             get => _spreadLoop;
             set => _spreadLoop = value;
         }
-        
+
         [SerializeField]
         private float _startDelay = 0;
-        
+
         /// <summary>
         ///   <para>Start delay in seconds.</para>
         /// </summary>
@@ -204,7 +204,7 @@ namespace AssetKits.ParticleImage
             get => _startDelay;
             set => _startDelay = value;
         }
-        
+
         [SerializeField]
         private float _radius = 50;
         /// <summary>
@@ -215,7 +215,7 @@ namespace AssetKits.ParticleImage
             get => _radius;
             set => _radius = value;
         }
-        
+
         [SerializeField]
         private float _width = 100;
         /// <summary>
@@ -226,7 +226,7 @@ namespace AssetKits.ParticleImage
             get => _width;
             set => _width = value;
         }
-        
+
         [SerializeField]
         private float _height = 100;
         /// <summary>
@@ -237,7 +237,7 @@ namespace AssetKits.ParticleImage
             get => _height;
             set => _height = value;
         }
-        
+
         [SerializeField]
         private float _angle = 45;
         /// <summary>
@@ -259,10 +259,10 @@ namespace AssetKits.ParticleImage
             get => _length;
             set => _length = value;
         }
-        
+
         [SerializeField]
         private bool _fitRect;
-        
+
         public bool fitRect
         {
             get
@@ -272,11 +272,11 @@ namespace AssetKits.ParticleImage
             set
             {
                 _fitRect = value;
-                if(value) 
+                if (value)
                     FitRect();
             }
         }
-        
+
         [SerializeField]
         private bool _emitOnSurface = true;
         /// <summary>
@@ -287,7 +287,7 @@ namespace AssetKits.ParticleImage
             get => _emitOnSurface;
             set => _emitOnSurface = value;
         }
-        
+
         [SerializeField]
         private float _emitterThickness;
         /// <summary>
@@ -298,7 +298,7 @@ namespace AssetKits.ParticleImage
             get => _emitterThickness;
             set => _emitterThickness = value;
         }
-        
+
         [SerializeField]
         private bool _loop = true;
         /// <summary>
@@ -309,16 +309,16 @@ namespace AssetKits.ParticleImage
             get => _loop;
             set => _loop = value;
         }
-        
+
         [SerializeField]
         private bool _prewarm;
-        
+
         public bool prewarm
         {
             get => _prewarm;
             set => _prewarm = value;
         }
-        
+
         [SerializeField]
         private float _duration = 5f;
         /// <summary>
@@ -329,7 +329,7 @@ namespace AssetKits.ParticleImage
             get => _duration;
             set => _duration = value;
         }
-        
+
         [SerializeField]
         private PlayMode _playMode = PlayMode.OnAwake;
         public PlayMode PlayMode
@@ -348,13 +348,13 @@ namespace AssetKits.ParticleImage
                         particleImage._playMode = value;
                     }
                 }
-                else if(!isMain)
+                else if (!isMain)
                 {
                     main.PlayMode = value;
                 }
             }
         }
-        
+
         [SerializeField]
         private SeparatedMinMaxCurve _startSize = new SeparatedMinMaxCurve(40f);
         public SeparatedMinMaxCurve startSize
@@ -362,7 +362,7 @@ namespace AssetKits.ParticleImage
             get => _startSize;
             set => _startSize = value;
         }
-        
+
         [SerializeField]
         private ParticleSystem.MinMaxGradient _startColor = new ParticleSystem.MinMaxGradient(Color.white);
         public ParticleSystem.MinMaxGradient startColor
@@ -370,7 +370,7 @@ namespace AssetKits.ParticleImage
             get => _startColor;
             set => _startColor = value;
         }
-        
+
         [SerializeField]
         private ParticleSystem.MinMaxCurve _lifetime = new ParticleSystem.MinMaxCurve(1f);
         public ParticleSystem.MinMaxCurve lifetime
@@ -378,7 +378,7 @@ namespace AssetKits.ParticleImage
             get => _lifetime;
             set => _lifetime = value;
         }
-        
+
         [SerializeField]
         private ParticleSystem.MinMaxCurve _startSpeed = new ParticleSystem.MinMaxCurve(2f);
         public ParticleSystem.MinMaxCurve startSpeed
@@ -386,7 +386,7 @@ namespace AssetKits.ParticleImage
             get => _startSpeed;
             set => _startSpeed = value;
         }
-        
+
         [SerializeField]
         private ParticleSystem.MinMaxGradient _colorOverLifetime = new ParticleSystem.MinMaxGradient(new Gradient());
         public ParticleSystem.MinMaxGradient colorOverLifetime
@@ -394,7 +394,7 @@ namespace AssetKits.ParticleImage
             get => _colorOverLifetime;
             set => _colorOverLifetime = value;
         }
-        
+
         [SerializeField]
         private ParticleSystem.MinMaxGradient _colorBySpeed = new ParticleSystem.MinMaxGradient(new Gradient());
         public ParticleSystem.MinMaxGradient colorBySpeed
@@ -402,7 +402,7 @@ namespace AssetKits.ParticleImage
             get => _colorBySpeed;
             set => _colorBySpeed = value;
         }
-        
+
         [SerializeField]
         private SpeedRange _colorSpeedRange = new SpeedRange(0f, 1f);
         public SpeedRange colorSpeedRange
@@ -410,9 +410,9 @@ namespace AssetKits.ParticleImage
             get => _colorSpeedRange;
             set => _colorSpeedRange = value;
         }
-        
+
         [SerializeField]
-        private SeparatedMinMaxCurve _sizeOverLifetime = new SeparatedMinMaxCurve(new AnimationCurve(new []{new Keyframe(0f,1f), new Keyframe(1f,1f)}));
+        private SeparatedMinMaxCurve _sizeOverLifetime = new SeparatedMinMaxCurve(new AnimationCurve(new[] { new Keyframe(0f, 1f), new Keyframe(1f, 1f) }));
         public SeparatedMinMaxCurve sizeOverLifetime
         {
             get => _sizeOverLifetime;
@@ -420,13 +420,13 @@ namespace AssetKits.ParticleImage
         }
 
         [SerializeField]
-        private SeparatedMinMaxCurve _sizeBySpeed = new SeparatedMinMaxCurve(new AnimationCurve(new []{new Keyframe(0f,1f), new Keyframe(1f,1f)}));
+        private SeparatedMinMaxCurve _sizeBySpeed = new SeparatedMinMaxCurve(new AnimationCurve(new[] { new Keyframe(0f, 1f), new Keyframe(1f, 1f) }));
         public SeparatedMinMaxCurve sizeBySpeed
         {
             get => _sizeBySpeed;
             set => _sizeBySpeed = value;
         }
-        
+
         [SerializeField]
         private SpeedRange _sizeSpeedRange = new SpeedRange(0f, 1f);
         public SpeedRange sizeSpeedRange
@@ -434,7 +434,7 @@ namespace AssetKits.ParticleImage
             get => _sizeSpeedRange;
             set => _sizeSpeedRange = value;
         }
-        
+
         [SerializeField]
         private SeparatedMinMaxCurve _startRotation = new SeparatedMinMaxCurve(0f);
         public SeparatedMinMaxCurve startRotation
@@ -442,7 +442,7 @@ namespace AssetKits.ParticleImage
             get => _startRotation;
             set => _startRotation = value;
         }
-        
+
         [SerializeField]
         private SeparatedMinMaxCurve _rotationOverLifetime = new SeparatedMinMaxCurve(0f);
         public SeparatedMinMaxCurve rotationOverLifetime
@@ -450,15 +450,15 @@ namespace AssetKits.ParticleImage
             get => _rotationOverLifetime;
             set => _rotationOverLifetime = value;
         }
-        
+
         [SerializeField]
-        private SeparatedMinMaxCurve _rotationBySpeed = new SeparatedMinMaxCurve(new AnimationCurve(new []{new Keyframe(0f,1f), new Keyframe(1f,1f)}));
+        private SeparatedMinMaxCurve _rotationBySpeed = new SeparatedMinMaxCurve(new AnimationCurve(new[] { new Keyframe(0f, 1f), new Keyframe(1f, 1f) }));
         public SeparatedMinMaxCurve rotationBySpeed
         {
             get => _rotationBySpeed;
             set => _rotationBySpeed = value;
         }
-        
+
         [SerializeField]
         private SpeedRange _rotationSpeedRange = new SpeedRange(0f, 1f);
         public SpeedRange rotationSpeedRange
@@ -466,7 +466,7 @@ namespace AssetKits.ParticleImage
             get => _rotationSpeedRange;
             set => _rotationSpeedRange = value;
         }
-        
+
         [SerializeField]
         private ParticleSystem.MinMaxCurve _speedOverLifetime = new ParticleSystem.MinMaxCurve(1f);
         public ParticleSystem.MinMaxCurve speedOverLifetime
@@ -485,7 +485,7 @@ namespace AssetKits.ParticleImage
             get => _alignToDirection;
             set => _alignToDirection = value;
         }
-        
+
         [SerializeField]
         private ParticleSystem.MinMaxCurve _gravity = new ParticleSystem.MinMaxCurve(-9.81f);
         public ParticleSystem.MinMaxCurve gravity
@@ -507,7 +507,7 @@ namespace AssetKits.ParticleImage
                 _targetModule.enabled = value;
             }
         }
-        
+
         [SerializeField]
         private Transform _attractorTarget;
         public Transform attractorTarget
@@ -515,15 +515,15 @@ namespace AssetKits.ParticleImage
             get => _attractorTarget;
             set => _attractorTarget = value;
         }
-        
+
         [SerializeField]
-        private ParticleSystem.MinMaxCurve _toTarget = new ParticleSystem.MinMaxCurve(1f, new AnimationCurve(new []{new Keyframe(0f,0f), new Keyframe(1f,1f)}));
+        private ParticleSystem.MinMaxCurve _toTarget = new ParticleSystem.MinMaxCurve(1f, new AnimationCurve(new[] { new Keyframe(0f, 0f), new Keyframe(1f, 1f) }));
         public ParticleSystem.MinMaxCurve attractorLerp
         {
             get => _toTarget;
             set => _toTarget = value;
         }
-        
+
         [SerializeField]
         private AttractorType _targetMode = AttractorType.Pivot;
         public AttractorType attractorType
@@ -531,7 +531,7 @@ namespace AssetKits.ParticleImage
             get => _targetMode;
             set => _targetMode = value;
         }
-        
+
         [SerializeField]
         private Module _noiseModule = new Module(false);
         public bool noiseEnabled
@@ -545,7 +545,7 @@ namespace AssetKits.ParticleImage
                 _noiseModule.enabled = value;
             }
         }
-        
+
         [SerializeField]
         private Module _gravityModule = new Module(false);
         public bool gravityEnabled
@@ -559,7 +559,7 @@ namespace AssetKits.ParticleImage
                 _gravityModule.enabled = value;
             }
         }
-        
+
         [SerializeField]
         private Module _vortexModule = new Module(false);
         public bool vortexEnabled
@@ -573,7 +573,7 @@ namespace AssetKits.ParticleImage
                 _vortexModule.enabled = value;
             }
         }
-        
+
         [SerializeField]
         private Module _velocityModule = new Module(false);
         public bool velocityEnabled
@@ -587,7 +587,7 @@ namespace AssetKits.ParticleImage
                 _velocityModule.enabled = value;
             }
         }
-        
+
         [SerializeField]
         private Simulation _velocitySpace;
         public Simulation velocitySpace
@@ -595,7 +595,7 @@ namespace AssetKits.ParticleImage
             get => _velocitySpace;
             set => _velocitySpace = value;
         }
-        
+
         [SerializeField]
         private SeparatedMinMaxCurve _velocityOverLifetime = new SeparatedMinMaxCurve(0f, true, false);
         public SeparatedMinMaxCurve velocityOverLifetime
@@ -603,7 +603,7 @@ namespace AssetKits.ParticleImage
             get => _velocityOverLifetime;
             set => _velocityOverLifetime = value;
         }
-        
+
         [SerializeField]
         private ParticleSystem.MinMaxCurve _vortexStrength;
         public ParticleSystem.MinMaxCurve vortexStrength
@@ -625,7 +625,7 @@ namespace AssetKits.ParticleImage
                 _sheetModule.enabled = value;
             }
         }
-        
+
         [SerializeField]
         private Vector2Int _textureTile = Vector2Int.one;
         public Vector2Int textureTile
@@ -685,12 +685,12 @@ namespace AssetKits.ParticleImage
         }
 
         private List<Particle> _particles = new List<Particle>(128);
-        
+
         /// <summary>
         /// List of particles in the system.
         /// </summary>
         public List<Particle> particles => _particles;
-        
+
         private ParticlePool _pool;
 
         public ParticlePool pool
@@ -699,7 +699,7 @@ namespace AssetKits.ParticleImage
             {
                 if (_pool == null)
                 {
-                    _pool = new ParticlePool((int)(_rate + _rateOverLifetime + _rateOverDistance),this);
+                    _pool = new ParticlePool((int)(_rate + _rateOverLifetime + _rateOverDistance), this);
                 }
 
                 return _pool;
@@ -717,7 +717,7 @@ namespace AssetKits.ParticleImage
                 return _particles.Count;
             }
         }
-        
+
 #if PARTICLE_IMAGE_JOBS
         private NativeList<ParticleData> jobParticles;
 
@@ -756,10 +756,10 @@ namespace AssetKits.ParticleImage
         private Quaternion _lastTransformRotation;
         private Vector3 _transformDeltaRotation;
 #endif
-        
+
         [SerializeField]
         private float _rate = 50;
-        
+
         /// <summary>
         /// The rate at which the emitter spawns new particles per second.
         /// </summary>
@@ -768,10 +768,10 @@ namespace AssetKits.ParticleImage
             get => _rate;
             set => _rate = value;
         }
-        
+
         [SerializeField]
         private float _rateOverLifetime = 0;
-        
+
         /// <summary>
         /// The rate at which the emitter spawns new particles over emitter duration.
         /// </summary>
@@ -780,10 +780,10 @@ namespace AssetKits.ParticleImage
             get => _rateOverLifetime;
             set => _rateOverLifetime = value;
         }
-        
+
         [SerializeField]
         private float _rateOverDistance = 0;
-        
+
         /// <summary>
         /// The rate at which the emitter spawns new particles over distance per pixel.
         /// </summary>
@@ -792,11 +792,12 @@ namespace AssetKits.ParticleImage
             get => _rateOverDistance;
             set => _rateOverDistance = value;
         }
-        
-        [SerializeField]
-        private List<Burst> _bursts = new List<Burst>(); 
 
-        [FormerlySerializedAs("_trailRenderer")] [SerializeField]
+        [SerializeField]
+        private List<Burst> _bursts = new List<Burst>();
+
+        [FormerlySerializedAs("_trailRenderer")]
+        [SerializeField]
         private ParticleTrailRenderer _particleTrailRenderer;
 
         public ParticleTrailRenderer particleTrailRenderer
@@ -846,7 +847,7 @@ namespace AssetKits.ParticleImage
             set => _trailModule.enabled = value;
         }
 
-        [SerializeField] private ParticleSystem.MinMaxCurve _trailWidth = new ParticleSystem.MinMaxCurve(1f,new AnimationCurve(new []{new Keyframe(0f,1f), new Keyframe(1f,0f)}));
+        [SerializeField] private ParticleSystem.MinMaxCurve _trailWidth = new ParticleSystem.MinMaxCurve(1f, new AnimationCurve(new[] { new Keyframe(0f, 1f), new Keyframe(1f, 0f) }));
 
         /// <summary>
         /// The width of the trail in pixels.
@@ -856,9 +857,9 @@ namespace AssetKits.ParticleImage
             get => _trailWidth;
             set => _trailWidth = value;
         }
-        
+
         [SerializeField] private float _trailLifetime = 1f;
-        
+
         /// <summary>
         /// Trail lifetime in seconds
         /// </summary>
@@ -867,9 +868,9 @@ namespace AssetKits.ParticleImage
             get => _trailLifetime;
             set => _trailLifetime = value;
         }
-        
+
         [SerializeField] private float _minimumVertexDistance = 10f;
-        
+
         /// <summary>
         /// Vertex distance in canvas pixels
         /// </summary>
@@ -878,9 +879,9 @@ namespace AssetKits.ParticleImage
             get => _minimumVertexDistance;
             set => _minimumVertexDistance = value;
         }
-        
+
         [SerializeField] private ParticleSystem.MinMaxGradient _trailColorOverLifetime = new ParticleSystem.MinMaxGradient(Color.white);
-        
+
         /// <summary>
         /// The color of the trail over its lifetime.
         /// </summary>
@@ -889,9 +890,9 @@ namespace AssetKits.ParticleImage
             get => _trailColorOverLifetime;
             set => _trailColorOverLifetime = value;
         }
-        
+
         [SerializeField] private ParticleSystem.MinMaxGradient _trailColorOverTrail = new ParticleSystem.MinMaxGradient(Color.white);
-        
+
         /// <summary>
         /// The color of the trail over the lifetime of the trail.
         /// </summary>
@@ -900,9 +901,9 @@ namespace AssetKits.ParticleImage
             get => _trailColorOverTrail;
             set => _trailColorOverTrail = value;
         }
-        
+
         [SerializeField] private Material _trailMaterial;
-        
+
         /// <summary>
         ///  The material used to render the trail.
         /// </summary>
@@ -919,7 +920,7 @@ namespace AssetKits.ParticleImage
                 }
             }
         }
-        
+
 
         [SerializeField] private bool _inheritParticleColor;
 
@@ -930,30 +931,30 @@ namespace AssetKits.ParticleImage
         }
 
         [SerializeField] private bool _dieWithParticle = false;
-        
+
         public bool dieWithParticle
         {
             get => _dieWithParticle;
             set => _dieWithParticle = value;
         }
-        
-        [Range(0f,1f)]
+
+        [Range(0f, 1f)]
         [SerializeField] private float _trailRatio = 1f;
-        
+
         public float trailRatio
         {
             get => _trailRatio;
             set
             {
                 _trailRatio = Mathf.Clamp01(value);
-            } 
+            }
         }
-        
+
         private float _time;
         public float time => _time;
 
         private float _playback;
-        
+
         public float playback => _playback;
 
         private float _loopTimer;
@@ -961,23 +962,23 @@ namespace AssetKits.ParticleImage
         private float _t;
         private float _t2;
         private float _burstTimer;
-        
+
         private Noise _noise = new Noise();
         public Noise noise
         {
             get => _noise;
             set => _noise = value;
         }
-        
+
         [SerializeField]
         private Vector2 _noiseOffset;
-        
+
         public Vector2 noiseOffset
         {
             get => _noiseOffset;
             set => _noiseOffset = value;
         }
-        
+
         [SerializeField]
         private float _noiseFrequency = 1f;
         public float noiseFrequency
@@ -989,10 +990,10 @@ namespace AssetKits.ParticleImage
                 _noise.SetFrequency(_noiseFrequency);
             }
         }
-        
+
         [SerializeField]
         private float _noiseStrength = 1f;
-        
+
         public float noiseStrength
         {
             get => _noiseStrength;
@@ -1000,24 +1001,24 @@ namespace AssetKits.ParticleImage
         }
 
         private bool _noiseDebug;
-        
+
         public bool noiseDebug
         {
             get => _noiseDebug;
             set => _noiseDebug = value;
         }
-        
-        private Vector2Int _noiseViewSize = new Vector2Int(64,64);
-        
+
+        private Vector2Int _noiseViewSize = new Vector2Int(64, 64);
+
         public Vector2Int noiseViewSize
         {
             get => _noiseViewSize;
             set => _noiseViewSize = value;
         }
-        
+
         [SerializeField]
         private Module _multithreadModule = new Module(false);
-        
+
         [SerializeField]
         private bool _multithreadEnabled = false;
         public bool multithreadEnabled
@@ -1036,62 +1037,62 @@ namespace AssetKits.ParticleImage
                         particleImage._multithreadModule.enabled = value;
                     }
                 }
-                else if(!isMain)
+                else if (!isMain)
                 {
                     main._multithreadEnabled = value;
                     main._multithreadModule.enabled = value;
                 }
             }
         }
-        
-        
+
+
         private bool _emitting;
-        
+
         /// <summary>
         /// Determines if the particle system is emitting.
         /// </summary>
         public bool isEmitting
         {
-            get { return _emitting;}
+            get { return _emitting; }
             private set { _emitting = value; }
         }
-        
+
         private bool _playing;
-        
+
         /// <summary>
         /// Determines if the particle system is playing.
         /// </summary>
         public bool isPlaying
         {
-            get { return _playing;}
+            get { return _playing; }
             private set { _playing = value; }
         }
-        
+
         private bool _stopped;
-        
+
         /// <summary>
         /// Determines whether the Particle System is stopped.
         /// </summary>
         public bool isStopped
         {
-            get { return _stopped;}
+            get { return _stopped; }
             private set { _stopped = value; }
         }
 
         private bool _paused;
-        
+
         /// <summary>
         /// Determines whether the Particle System is paused.
         /// </summary>
         public bool isPaused
         {
-            get { return _paused;}
+            get { return _paused; }
             private set { _paused = value; }
         }
 
         [SerializeField]
         private UnityEvent _onStart = new UnityEvent();
-        
+
         /// <summary>
         /// Called when the particle system starts.
         /// </summary>
@@ -1099,31 +1100,31 @@ namespace AssetKits.ParticleImage
 
         [SerializeField]
         private UnityEvent _onFirstParticleFinish = new UnityEvent();
-        
+
         /// <summary>
         /// Called when the first piece of a particle finishes.
         /// </summary>
         public UnityEvent onFirstParticleFinished => _onFirstParticleFinish;
-        
+
         [SerializeField]
         private UnityEvent _onParticleFinish = new UnityEvent();
-        
+
         /// <summary>
         /// Called when any piece of a particle finishes.
         /// </summary>
         public UnityEvent onAnyParticleFinished => _onParticleFinish;
-        
+
         [SerializeField]
         private UnityEvent _onLastParticleFinish = new UnityEvent();
-        
+
         /// <summary>
         /// Called when the last piece of a particle finishes.
         /// </summary>
         public UnityEvent onLastParticleFinished => _onLastParticleFinish;
-        
+
         [SerializeField]
         private UnityEvent _onStop = new UnityEvent();
-        
+
         /// <summary>
         /// Called when the particle system is stopped.
         /// </summary>
@@ -1149,9 +1150,9 @@ namespace AssetKits.ParticleImage
                 return _camera;
             }
         }
-        
+
         private bool _firstParticleFinished;
-        
+
         private int _orderPerSec;
         private int _orderOverLife;
         private int _orderOverDistance;
@@ -1169,30 +1170,30 @@ namespace AssetKits.ParticleImage
             {
                 children = GetChildren();
             }
-            
+
             if (fitRect)
             {
                 FitRect();
             }
-            
+
             main = GetMain();
             main.children = main.GetChildren();
-            
+
             _playMode = main.PlayMode;
-            
+
             _multithreadEnabled = main._multithreadEnabled;
             _multithreadModule.enabled = main._multithreadModule.enabled;
-            
+
             _lastPosition = transform.position;
-            
+
             if (canvas)
             {
                 canvasRect = canvas.gameObject.GetComponent<RectTransform>();
             }
-            
+
             RecalculateMasking();
             RecalculateClipping();
-            
+
             Clear();
             if (PlayMode == PlayMode.OnAwake && Application.isPlaying)
             {
@@ -1207,37 +1208,37 @@ namespace AssetKits.ParticleImage
             {
                 children = GetChildren();
             }
-            
+
             if (fitRect)
             {
                 FitRect();
             }
-            
+
             main = GetMain();
             main.children = main.GetChildren();
-            
+
             _playMode = main.PlayMode;
-            
+
             _multithreadEnabled = main._multithreadEnabled;
             _multithreadModule.enabled = main._multithreadModule.enabled;
-            
+
             _lastPosition = transform.position;
-            
+
             if (canvas && canvasRect == null)
             {
                 canvasRect = canvas.gameObject.GetComponent<RectTransform>();
             }
-            
+
             _noise.SetNoiseType(Noise.NoiseType.OpenSimplex2);
             _noise.SetFrequency(_noiseFrequency / 100f);
-            
+
             if (PlayMode == PlayMode.OnEnable && Application.isPlaying)
             {
                 Stop(true);
                 Clear();
                 Play();
             }
-            
+
             RecalculateMasking();
             RecalculateClipping();
         }
@@ -1245,7 +1246,7 @@ namespace AssetKits.ParticleImage
         protected override void OnDisable()
         {
             base.OnDisable();
-            
+
 #if PARTICLE_IMAGE_JOBS
             if(jobParticles.IsCreated)
                 jobParticles.Dispose();
@@ -1267,7 +1268,7 @@ namespace AssetKits.ParticleImage
 
             return this;
         }
-        
+
         /// <summary>
         /// Get all children of this Particle Image.
         /// </summary>
@@ -1291,7 +1292,7 @@ namespace AssetKits.ParticleImage
         private void OnTransformChildrenChanged()
         {
             main = GetMain();
-            if(isMain)
+            if (isMain)
                 children = GetChildren();
         }
 
@@ -1299,7 +1300,7 @@ namespace AssetKits.ParticleImage
         {
             base.OnTransformParentChanged();
             main = GetMain();
-            if(isMain)
+            if (isMain)
                 children = GetChildren();
         }
 
@@ -1327,7 +1328,7 @@ namespace AssetKits.ParticleImage
             {
                 _bursts[i].used = false;
             }
-            
+
             isEmitting = true;
             isPlaying = true;
             isPaused = false;
@@ -1337,7 +1338,7 @@ namespace AssetKits.ParticleImage
             {
                 Prewarm();
             }
-            
+
             Simulate(_timeScale == TimeScale.Normal ? Time.deltaTime : Time.unscaledDeltaTime, prewarm);
 
             OnParticleStart();
@@ -1360,12 +1361,12 @@ namespace AssetKits.ParticleImage
                     particleImage.DoPause();
                 }
             }
-            
+
             isEmitting = false;
             isPlaying = false;
             isPaused = true;
         }
-        
+
         /// <summary>
         /// Stops playing the Particle System.
         /// </summary>
@@ -1394,7 +1395,7 @@ namespace AssetKits.ParticleImage
                     particleImage.DoStop(stopAndClear);
                 }
             }
-            
+
             _orderPerSec = 0;
             _orderOverLife = 0;
             _orderOverDistance = 0;
@@ -1402,7 +1403,7 @@ namespace AssetKits.ParticleImage
             {
                 _bursts[i].used = false;
             }
-            
+
             if (stopAndClear)
             {
                 isStopped = true;
@@ -1463,18 +1464,18 @@ namespace AssetKits.ParticleImage
             mesh.Clear();
             canvasRenderer.SetMesh(mesh);
             SetMaterialDirty();
-            if(particleTrailRenderer)
+            if (particleTrailRenderer)
                 particleTrailRenderer.Clear();
         }
 
         void Update()
         {
             Simulate(_timeScale == TimeScale.Normal ? Time.deltaTime : Time.unscaledDeltaTime);
-            
+
             //Draw Noise Visualizer
             if (noiseEnabled && _noiseDebug)
             {
-                #if PARTICLE_IMAGE_JOBS
+#if PARTICLE_IMAGE_JOBS
                 if (multithreadEnabled)
                 {
                     var w1 = _noiseViewSize.x / 2;
@@ -1505,7 +1506,7 @@ namespace AssetKits.ParticleImage
                     return;
                 }
                 
-                #endif
+#endif
                 var w = _noiseViewSize.x / 2;
                 var h = _noiseViewSize.y / 2;
                 for (var i = -w; i < w; i++)
@@ -1514,17 +1515,17 @@ namespace AssetKits.ParticleImage
                     {
                         var pos = new Vector3(i * 10, j * 10, 0);
                         var no = _noise.GetNoise(pos.x + noiseOffset.x, pos.y + noiseOffset.y);
-                        if(space == Simulation.World)
+                        if (space == Simulation.World)
                             no = _noise.GetNoise(pos.x + transform.localPosition.x + noiseOffset.x, pos.y + transform.localPosition.y + noiseOffset.y);
-                        
+
                         Debug.DrawLine(RotatePointAroundCenter((pos + transform.localPosition) * canvasRect.localScale.x, canvasRect.eulerAngles) + canvasRect.position, RotatePointAroundCenter((pos + transform.localPosition + new Vector3(
-                            Mathf.Cos(no * Mathf.PI), 
+                            Mathf.Cos(no * Mathf.PI),
                             Mathf.Sin(no * Mathf.PI)) * 10) * canvasRect.localScale.x, canvasRect.eulerAngles) + canvasRect.position, new Color(no, no.Remap(-1f, 1f, 1f, 0f), 0f));
                     }
                 }
             }
         }
-        
+
         private Vector3 RotatePointAroundCenter(Vector3 point, Vector3 angles)
         {
             return Quaternion.Euler(angles) * (point);
@@ -1533,15 +1534,15 @@ namespace AssetKits.ParticleImage
         private void UpdateSheets()
         {
             sheetsArray = new NativeArray<SpriteSheet>(textureTile.x * textureTile.y, multithreadEnabled ? Allocator.TempJob : Allocator.Temp);
-            
+
             if (textureSheetEnabled)
             {
-                for (var i = textureTile.y-1; i > -1; i--)
+                for (var i = textureTile.y - 1; i > -1; i--)
                 {
                     for (var j = 0; j < textureTile.x; j++)
                     {
-                        
-                        sheetsArray[(textureTile.y - 1 - i) * textureTile.x + j] = new SpriteSheet(new Vector2(1f/textureTile.x * (j+1),1f/textureTile.y * (i+1)), new Vector2(1f/textureTile.x * j,1f/textureTile.y * i));
+
+                        sheetsArray[(textureTile.y - 1 - i) * textureTile.x + j] = new SpriteSheet(new Vector2(1f / textureTile.x * (j + 1), 1f / textureTile.y * (i + 1)), new Vector2(1f / textureTile.x * j, 1f / textureTile.y * i));
                     }
                 }
             }
@@ -1550,17 +1551,17 @@ namespace AssetKits.ParticleImage
                 if (sprite != null)
                 {
                     var rect = DataUtility.GetOuterUV(sprite);
-                    sheetsArray[0] = new SpriteSheet(new Vector2(rect[2],rect[3]), new Vector2(rect[0],rect[1]));
+                    sheetsArray[0] = new SpriteSheet(new Vector2(rect[2], rect[3]), new Vector2(rect[0], rect[1]));
                 }
                 else
-                    sheetsArray[0] = new SpriteSheet(new Vector2(1f,1f), new Vector2(0f,0f));
+                    sheetsArray[0] = new SpriteSheet(new Vector2(1f, 1f), new Vector2(0f, 0f));
             }
         }
 
         private void Prewarm()
         {
             var numFrames = Mathf.FloorToInt(duration * 2 / 0.01f);
-            
+
             for (var i = 0; i < numFrames; i++)
             {
                 Simulate(0.01f, true);
@@ -1573,13 +1574,13 @@ namespace AssetKits.ParticleImage
             if (isEmitting && !canvasRenderer.cull)
             {
                 //Emit per second
-                if(_rate > 0)
+                if (_rate > 0)
                 {
                     if ((_time < (_duration + _startDelay) || _loop) && _time > _startDelay)
                     {
                         var dur = 1f / _rate;
                         _t += deltaTime;
-                        while(_t >= dur)
+                        while (_t >= dur)
                         {
                             _t -= dur;
                             _orderPerSec++;
@@ -1599,7 +1600,7 @@ namespace AssetKits.ParticleImage
                             }
                             else
                             {
-                                _particles.Add(GenerateParticle(_orderPerSec,1, null, _t));
+                                _particles.Add(GenerateParticle(_orderPerSec, 1, null, _t));
                             }
                         }
                     }
@@ -1612,11 +1613,11 @@ namespace AssetKits.ParticleImage
                     {
                         var dur = _duration / _rateOverLifetime;
                         _t2 += deltaTime;
-                        while(_t2 >= dur)
+                        while (_t2 >= dur)
                         {
                             _t2 -= dur;
                             _orderOverLife++;
-                            
+
                             if (multithreadEnabled)
                             {
 #if PARTICLE_IMAGE_JOBS
@@ -1633,7 +1634,7 @@ namespace AssetKits.ParticleImage
                             }
                             else
                             {
-                                _particles.Add(GenerateParticle(_orderOverLife,2, null, _t2));
+                                _particles.Add(GenerateParticle(_orderOverLife, 2, null, _t2));
                             }
                         }
                     }
@@ -1661,7 +1662,7 @@ namespace AssetKits.ParticleImage
                         }
                         else
                         {
-                            _particles.Add(GenerateParticle(_orderOverDistance,3, null, 0));
+                            _particles.Add(GenerateParticle(_orderOverDistance, 3, null, 0));
                         }
                         _lastPosition = transform.position;
                     }
@@ -1689,16 +1690,18 @@ namespace AssetKits.ParticleImage
                                         JobParticles.Add(GenerateJobParticle(j,0, _bursts[i]));
                                     }
 #endif
-                                }else{
-                                    _particles.Add(GenerateParticle(j,0, _bursts[i], 0));
+                                }
+                                else
+                                {
+                                    _particles.Add(GenerateParticle(j, 0, _bursts[i], 0));
                                 }
                             }
-                            
+
                             _bursts[i].used = true;
                         }
                     }
                 }
-                
+
                 if (_loop && _burstTimer >= _duration)
                 {
                     _burstTimer = 0;
@@ -1712,8 +1715,8 @@ namespace AssetKits.ParticleImage
                 {
                     isEmitting = false;
                 }
-                
-                if(_loop && _loopTimer >= _duration + _startDelay)
+
+                if (_loop && _loopTimer >= _duration + _startDelay)
                 {
                     _loopTimer = 0;
                     _orderPerSec = 0;
@@ -1722,7 +1725,7 @@ namespace AssetKits.ParticleImage
                 }
             }
             //</Generate Particles>
-            
+
             if (isPlaying && particleCount <= 0 && !isEmitting && isMain && CanStop)
             {
                 Stop(true);
@@ -1731,7 +1734,7 @@ namespace AssetKits.ParticleImage
             if (isPlaying)
             {
                 _deltaPosition = transform.position - _lastPosition;
-           
+
                 if (_emitterConstraintTransform && _emitterConstraintEnabled.enabled)
                 {
                     if (_emitterConstraintTransform is RectTransform)
@@ -1745,7 +1748,7 @@ namespace AssetKits.ParticleImage
 
                         canPos = new Vector3(viewportPos.x.Remap(0.5f, 1.5f, 0f, canvasRect.rect.width),
                             viewportPos.y.Remap(0.5f, 1.5f, 0f, canvasRect.rect.height), 0);
-                        
+
                         canPos = canvasRect.transform.TransformPoint(canPos);
 
                         canPos = transform.parent.InverseTransformPoint(canPos);
@@ -1762,9 +1765,9 @@ namespace AssetKits.ParticleImage
                 _time += deltaTime;
                 _loopTimer += deltaTime;
                 _burstTimer += deltaTime;
-                
+
                 UpdateSheets();
-                
+
 #if PARTICLE_IMAGE_JOBS
 
                 #region Jobs
@@ -1990,7 +1993,7 @@ namespace AssetKits.ParticleImage
                 #endregion
                 
 #endif
-                
+
                 if (trailsEnabled)
                 {
                     var sum = 0;
@@ -2000,7 +2003,7 @@ namespace AssetKits.ParticleImage
                     }
                     particleTrailRenderer.PrepareMeshData(sum, _particles.Count);
                 }
-                
+
                 var vertices = new NativeArray<Vector3>(particles.Count * 4, Allocator.Temp);
                 var triangles = new NativeArray<int>(particles.Count * 6, Allocator.Temp);
                 var uvs = new NativeArray<Vector2>(particles.Count * 4, Allocator.Temp);
@@ -2012,7 +2015,7 @@ namespace AssetKits.ParticleImage
                 for (var i = particles.Count - 1; i >= 0; i--)
                 {
                     _particles[i].Simulate(deltaTime);
-                    
+
                     if (_particles[i].TimeSinceBorn > _particles[i].Lifetime || prewarming)
                     {
                         continue;
@@ -2021,7 +2024,7 @@ namespace AssetKits.ParticleImage
                     vertices[vert + 1] = particles[i].points[1];
                     vertices[vert + 2] = particles[i].points[2];
                     vertices[vert + 3] = particles[i].points[3];
-            
+
                     triangles[tris] = vert;
                     triangles[tris + 1] = vert + 2;
                     triangles[tris + 2] = vert + 1;
@@ -2038,7 +2041,7 @@ namespace AssetKits.ParticleImage
                     colors[vert + 1] = particles[i].Color;
                     colors[vert + 2] = particles[i].Color;
                     colors[vert + 3] = particles[i].Color;
-            
+
                     vert += 4;
                     tris += 6;
                 }
@@ -2057,7 +2060,7 @@ namespace AssetKits.ParticleImage
 
                 mesh.RecalculateBounds();
                 canvasRenderer.SetMesh(mesh);
-                
+
                 if (trailsEnabled)
                 {
                     particleTrailRenderer.SetMeshData();
@@ -2074,7 +2077,7 @@ namespace AssetKits.ParticleImage
                         if (_firstParticleFinished == false)
                         {
                             _firstParticleFinished = true;
-                           OnFirstParticleFinished();
+                            OnFirstParticleFinished();
                         }
                         if (particleCount < 1)
                         {
@@ -2092,7 +2095,7 @@ namespace AssetKits.ParticleImage
         {
             _bursts.Add(new Burst(time, count));
         }
-        
+
         /// <summary>
         /// Remove burst at index
         /// </summary>
@@ -2100,7 +2103,7 @@ namespace AssetKits.ParticleImage
         {
             _bursts.RemoveAt(index);
         }
-        
+
         /// <summary>
         /// Set particle burst at index
         /// </summary>
@@ -2131,11 +2134,11 @@ namespace AssetKits.ParticleImage
 
                     return allChildrenInactive;
                 }
-            
+
                 return true;
             }
         }
-        
+
         private Vector2 GetPointOnRect(float angle, float w, float h)
         {
             // Calculate the sine and cosine of the angle
@@ -2167,7 +2170,7 @@ namespace AssetKits.ParticleImage
             // Return the point as a Vector2 object
             return new Vector2(dx, dy);
         }
-        
+
 #if PARTICLE_IMAGE_JOBS
         
         private float2 GetPointOnRectFloat2(float angle, float w, float h)
@@ -2400,7 +2403,7 @@ namespace AssetKits.ParticleImage
         }
         
 #endif
-        
+
         private Particle GenerateParticle(int order, int source, Burst burst, float startTime)
         {
             float angle = 0;
@@ -2408,19 +2411,19 @@ namespace AssetKits.ParticleImage
             {
                 angle = order * (360f / burst.count) * _spreadLoop;
             }
-            else if(source == 1)//Rate per Sec
+            else if (source == 1)//Rate per Sec
             {
                 angle = order * (360f / (_rate)) / _duration * _spreadLoop;
             }
-            else if(source == 2)//Rate over Life
+            else if (source == 2)//Rate over Life
             {
                 angle = order * (360f / (_rateOverLifetime)) * _spreadLoop;
             }
-            else if(source == 3)//Rate over Distance
+            else if (source == 3)//Rate over Distance
             {
                 angle = order * (360f / (_rateOverDistance)) / _duration * _spreadLoop;
             }
-            
+
             // Create new particle at system's starting position
             var startPosition = Vector2.zero;
             switch (_shape)
@@ -2433,11 +2436,11 @@ namespace AssetKits.ParticleImage
                     {
                         if (_spread == SpreadType.Random)
                         {
-                            startPosition =  Random.insideUnitCircle * _radius;
+                            startPosition = Random.insideUnitCircle * _radius;
                         }
                         else
                         {
-                            startPosition = RotateOnAngle(new Vector3(0,Random.Range(0f,1f),0), angle) * _radius;
+                            startPosition = RotateOnAngle(new Vector3(0, Random.Range(0f, 1f), 0), angle) * _radius;
                         }
                     }
                     else
@@ -2445,20 +2448,20 @@ namespace AssetKits.ParticleImage
                         if (_spread == SpreadType.Random)
                         {
                             var r = Random.insideUnitCircle.normalized;
-                            startPosition =  Vector3.Lerp(r * _radius, r * (_radius - _emitterThickness), Random.value);
+                            startPosition = Vector3.Lerp(r * _radius, r * (_radius - _emitterThickness), Random.value);
                         }
                         else
                         {
-                            startPosition = RotateOnAngle(new Vector3(0,1f,0), angle) * (UnityEngine.Random.Range(_radius, _radius - _emitterThickness));
+                            startPosition = RotateOnAngle(new Vector3(0, 1f, 0), angle) * (UnityEngine.Random.Range(_radius, _radius - _emitterThickness));
                         }
                     }
                     break;
                 case EmitterShape.Rectangle:
                     if (_emitOnSurface)
                     {
-                        if(_spread == SpreadType.Uniform)
+                        if (_spread == SpreadType.Uniform)
                         {
-                            startPosition = Vector2.Lerp(GetPointOnRect(angle*Mathf.Deg2Rad, _width, _height), Vector2.one, Random.value);
+                            startPosition = Vector2.Lerp(GetPointOnRect(angle * Mathf.Deg2Rad, _width, _height), Vector2.one, Random.value);
                         }
                         else
                         {
@@ -2469,25 +2472,25 @@ namespace AssetKits.ParticleImage
                     else
                     {
                         var a = Random.Range(0f, 360f);
-                        
-                        if(_spread == SpreadType.Uniform)
+
+                        if (_spread == SpreadType.Uniform)
                         {
                             a = angle;
                         }
-                        
-                        startPosition = Vector2.Lerp(GetPointOnRect(a*Mathf.Deg2Rad, _width, _height), GetPointOnRect(a*Mathf.Deg2Rad, _width-_emitterThickness, _height-_emitterThickness), Random.value);
+
+                        startPosition = Vector2.Lerp(GetPointOnRect(a * Mathf.Deg2Rad, _width, _height), GetPointOnRect(a * Mathf.Deg2Rad, _width - _emitterThickness, _height - _emitterThickness), Random.value);
                     }
                     break;
                 case EmitterShape.Line:
-                    if(_spread == SpreadType.Uniform)
+                    if (_spread == SpreadType.Uniform)
                     {
-                        startPosition = new Vector3(Mathf.Repeat(angle, 361).Remap(0,360,-_length/2, _length/2), 0);
+                        startPosition = new Vector3(Mathf.Repeat(angle, 361).Remap(0, 360, -_length / 2, _length / 2), 0);
                     }
                     else
                     {
-                        startPosition = new Vector3(Random.Range(-_length/2, _length/2), 0);
+                        startPosition = new Vector3(Random.Range(-_length / 2, _length / 2), 0);
                     }
-                    
+
                     break;
                 case EmitterShape.Directional:
                     startPosition = Vector3.zero;
@@ -2498,14 +2501,14 @@ namespace AssetKits.ParticleImage
             {
                 //startPosition = Quaternion.Euler(transform.eulerAngles) * (startPosition);
             }
-            
+
             var startVelocity = Vector3.zero;
             switch (_shape)
             {
                 case EmitterShape.Point:
                     if (_spread == SpreadType.Uniform)
                     {
-                        startVelocity = RotateOnAngle(new Vector3(0,1f,0), angle) * _startSpeed.Evaluate(Random.value, Random.value);;
+                        startVelocity = RotateOnAngle(new Vector3(0, 1f, 0), angle) * _startSpeed.Evaluate(Random.value, Random.value); ;
                     }
                     else
                     {
@@ -2527,7 +2530,7 @@ namespace AssetKits.ParticleImage
                     {
                         if (_spread == SpreadType.Uniform)
                         {
-                            a = Mathf.Repeat(angle, 361).Remap(0,360, -_angle / 2, _angle / 2) - transform.eulerAngles.z;
+                            a = Mathf.Repeat(angle, 361).Remap(0, 360, -_angle / 2, _angle / 2) - transform.eulerAngles.z;
                         }
                         else
                         {
@@ -2542,7 +2545,7 @@ namespace AssetKits.ParticleImage
                         }
                         else
                         {
-                            a = Random.Range(-_angle/2, _angle/2);
+                            a = Random.Range(-_angle / 2, _angle / 2);
                         }
                     }
                     startVelocity = RotateOnAngle(a) * _startSpeed.Evaluate(Random.value, Random.value);
@@ -2550,18 +2553,18 @@ namespace AssetKits.ParticleImage
             }
 
             var part = pool.Get();
-            
+
             part.Initialize(
                     startPosition,
                     startVelocity,
-                    _startRotation.EvaluateZ(Random.value, Random.value), 
+                    _startRotation.EvaluateZ(Random.value, Random.value),
                     _startColor.Evaluate(Random.value, Random.value),
                     _startSize.Evaluate(Random.value, Random.value),
                     _lifetime.Evaluate(Random.value, Random.value), startTime);
-            
+
             return part;
         }
-        
+
         public override Material material
         {
             get
@@ -2581,7 +2584,7 @@ namespace AssetKits.ParticleImage
         }
 
         [SerializeField] private Sprite m_Sprite;
-        
+
         public Sprite sprite
         {
             get
@@ -2599,7 +2602,8 @@ namespace AssetKits.ParticleImage
             }
         }
 
-        [SerializeField][Obsolete("Use sprite instead")]
+        [SerializeField]
+        [Obsolete("Use sprite instead")]
         private Texture m_Texture;
 
         [Obsolete("Use sprite instead")]
@@ -2638,7 +2642,7 @@ namespace AssetKits.ParticleImage
                         _emitterThickness = Mathf.Clamp(_emitterThickness, 0f, _radius);
                         break;
                     case EmitterShape.Rectangle:
-                        _emitterThickness = Mathf.Clamp(_emitterThickness, 0f, rectTransform.sizeDelta.x<rectTransform.sizeDelta.y?_width:_height);
+                        _emitterThickness = Mathf.Clamp(_emitterThickness, 0f, rectTransform.sizeDelta.x < rectTransform.sizeDelta.y ? _width : _height);
                         break;
                     case EmitterShape.Line:
                         _emitterThickness = Mathf.Clamp(_emitterThickness, 0f, _radius);
@@ -2656,14 +2660,14 @@ namespace AssetKits.ParticleImage
                 case EmitterShape.Circle:
                     if (rectTransform.rect.width > rectTransform.rect.height)
                     {
-                        _radius = rectTransform.rect.height/2;
+                        _radius = rectTransform.rect.height / 2;
                     }
                     else
                     {
-                        _radius = rectTransform.rect.width/2;
+                        _radius = rectTransform.rect.width / 2;
                     }
                     break;
-        
+
                 // If the emitter has a rectangle shape, set the width and height of the emitter
                 // to the width and height of the RectTransform.
                 case EmitterShape.Rectangle:
@@ -2683,27 +2687,30 @@ namespace AssetKits.ParticleImage
         {
             get
             {
-                if(sprite != null)
+                if (sprite != null)
                     return sprite.texture;
-                
-                return m_Texture == null ? s_WhiteTexture : m_Texture;
+
+                return Texture2D.whiteTexture;
             }
         }
+
 
         protected override void OnPopulateMesh(VertexHelper vh) { }
 
         protected override void UpdateGeometry() { }
-        
-        private Vector3 RotateOnAngle(float angle){
+
+        private Vector3 RotateOnAngle(float angle)
+        {
             var rad = angle * Mathf.Deg2Rad;
-            var position = new Vector3(Mathf.Sin( rad ), Mathf.Cos( rad ), 0);
+            var position = new Vector3(Mathf.Sin(rad), Mathf.Cos(rad), 0);
             return position * 1f;
         }
-        
-        private Vector3 RotateOnAngle(Vector3 p, float angle){
-            return Quaternion.Euler(new Vector3(0,0,angle)) * p;
+
+        private Vector3 RotateOnAngle(Vector3 p, float angle)
+        {
+            return Quaternion.Euler(new Vector3(0, 0, angle)) * p;
         }
-        
+
 #if PARTICLE_IMAGE_JOBS
         
         private float2 RotateOnAngleFloat2(float angle)
@@ -2718,7 +2725,7 @@ namespace AssetKits.ParticleImage
         }
         
 #endif
-        
+
         /// <summary>
         /// Converts world position to viewport position using the current camera
         /// </summary>
@@ -2739,30 +2746,30 @@ namespace AssetKits.ParticleImage
         {
             onFirstParticleFinished.Invoke();
         }
-        
+
         private void OnAnyParticleFinished()
         {
             onAnyParticleFinished.Invoke();
         }
-        
+
         private void OnLastParticleFinished()
         {
             onLastParticleFinished.Invoke();
         }
-        
+
         private void OnParticleStop()
         {
             onParticleStop.Invoke();
         }
     }
-    
+
     [Serializable]
     public class Burst
     {
         public float time = 0;
         public int count = 1;
         public bool used = false;
-        
+
         public Burst(float time, int count)
         {
             this.time = time;
@@ -2780,15 +2787,15 @@ namespace AssetKits.ParticleImage
             this.from = from;
             this.to = to;
         }
-        
-        #if PARTICLE_IMAGE_JOBS
+
+#if PARTICLE_IMAGE_JOBS
         
         public float2 ToFloat2()
         {
             return new float2(from, to);
         }
         
-        #endif
+#endif
     }
 
     [Serializable]
@@ -2822,13 +2829,13 @@ namespace AssetKits.ParticleImage
             this.separated = separated;
             this.separable = separable;
         }
-        
+
         public SeparatedMinMaxCurve(AnimationCurve startValue, bool separated = false, bool separable = true)
         {
-            mainCurve = new ParticleSystem.MinMaxCurve(1f,new AnimationCurve(startValue.keys));
+            mainCurve = new ParticleSystem.MinMaxCurve(1f, new AnimationCurve(startValue.keys));
             xCurve = new ParticleSystem.MinMaxCurve(1f, new AnimationCurve(startValue.keys));
-            yCurve = new ParticleSystem.MinMaxCurve(1f,new AnimationCurve(startValue.keys));
-            zCurve = new ParticleSystem.MinMaxCurve(1f,new AnimationCurve(startValue.keys));
+            yCurve = new ParticleSystem.MinMaxCurve(1f, new AnimationCurve(startValue.keys));
+            zCurve = new ParticleSystem.MinMaxCurve(1f, new AnimationCurve(startValue.keys));
             this.separated = separated;
             this.separable = separable;
         }
@@ -2842,7 +2849,7 @@ namespace AssetKits.ParticleImage
 
             return new Vector3(mainCurve.Evaluate(time, lerp), mainCurve.Evaluate(time, lerp), mainCurve.Evaluate(time, lerp));
         }
-        
+
         public Vector3 EvaluateZ(float time, float lerp)
         {
             if (separated)
@@ -2852,7 +2859,7 @@ namespace AssetKits.ParticleImage
 
             return new Vector3(0, 0, mainCurve.Evaluate(time, lerp));
         }
-        
+
         public Vector2 EvaluateXY(float time, float lerp)
         {
             if (separated)
@@ -2862,8 +2869,8 @@ namespace AssetKits.ParticleImage
 
             return new Vector2(mainCurve.Evaluate(time, lerp), mainCurve.Evaluate(time, lerp));
         }
-        
-        #if PARTICLE_IMAGE_JOBS
+
+#if PARTICLE_IMAGE_JOBS
 
         public float3 EvaluateFloat3(float time, float lerp)
         {
@@ -2895,11 +2902,13 @@ namespace AssetKits.ParticleImage
             return new float2(mainCurve.Evaluate(time, lerp), mainCurve.Evaluate(time, lerp));
         }
 
-        #endif
+#endif
     }
-    
-    public static class Extensions {
-        public static float Remap (this float value, float from1, float to1, float from2, float to2) {
+
+    public static class Extensions
+    {
+        public static float Remap(this float value, float from1, float to1, float from2, float to2)
+        {
             var v = (value - from1) / (to1 - from1) * (to2 - from2) + from2;
 #if PARTICLE_IMAGE_JOBS
             //Mathf.Approximately alternative for Burst compiler
@@ -2944,7 +2953,7 @@ namespace AssetKits.ParticleImage.Enumerations
     {
         None, OnEnable, OnAwake
     }
-    
+
     public enum SheetType
     {
         Lifetime, Speed, FPS

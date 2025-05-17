@@ -29,7 +29,7 @@ namespace DamageNumbersPro.Demo
             //Get All Prefabs:
             var parent = GameObject.Find("Special").transform.Find("Prefabs/Damage Numbers");
             prefabs = new DamageNumber[parent.childCount];
-            for(var n = 0; n < parent.childCount; n++)
+            for (var n = 0; n < parent.childCount; n++)
             {
                 prefabs[n] = parent.GetChild(n).GetComponent<DamageNumber>();
             }
@@ -50,14 +50,14 @@ namespace DamageNumbersPro.Demo
             currentIndex = 0;
             UpdateCurrent();
 
-            #if !UNITY_EDITOR && UNITY_WEBGL
+#if !UNITY_EDITOR && UNITY_WEBGL
                 WebGLInput.captureAllKeyboardInput = true;    
-            #endif  
+#endif
         }
 
         void Start()
         {
-            if(fade != null)
+            if (fade != null)
             {
                 fade.alpha = 1f;
             }
@@ -68,22 +68,22 @@ namespace DamageNumbersPro.Demo
             var scroll = DNP_InputHandler.GetMouseScroll();
             if (scroll != 0 && (!Cursor.visible || DNP_Camera.instance == null))
             {
-                if(scroll > 0.001f)
+                if (scroll > 0.001f)
                 {
                     currentIndex--;
 
-                    if(currentIndex < 0)
+                    if (currentIndex < 0)
                     {
                         currentIndex = prefabs.Length - 1;
                     }
 
                     UpdateCurrent();
                 }
-                else if(scroll < 0.001f)
+                else if (scroll < 0.001f)
                 {
                     currentIndex++;
 
-                    if(currentIndex > prefabs.Length - 1)
+                    if (currentIndex > prefabs.Length - 1)
                     {
                         currentIndex = 0;
                     }
@@ -92,13 +92,13 @@ namespace DamageNumbersPro.Demo
                 }
             }
 
-            if(fade != null)
+            if (fade != null)
             {
-                if(fadeOut)
+                if (fadeOut)
                 {
                     fade.alpha += Time.deltaTime * 4;
 
-                    if(fade.alpha >= 0.999f)
+                    if (fade.alpha >= 0.999f)
                     {
                         SceneManager.LoadScene(loadScene);
                         enabled = false;
@@ -108,7 +108,7 @@ namespace DamageNumbersPro.Demo
                 }
                 else
                 {
-                    if(fade.alpha > 0)
+                    if (fade.alpha > 0)
                     {
                         fade.alpha -= Time.deltaTime * 3;
                     }
@@ -126,13 +126,13 @@ namespace DamageNumbersPro.Demo
                 dn.DestroyDNP();
             }*/
 
-            if(DNP_Camera.instance != null)
+            if (DNP_Camera.instance != null)
             {
                 DNP_Camera.instance.enabled = false;
             }
 
-            var demo2D = FindObjectOfType<DNP_2DDemo>();
-            if(demo2D) 
+            var demo2D = FindFirstObjectByType<DNP_2DDemo>();
+            if (demo2D)
             {
                 demo2D.enabled = false;
             }
@@ -158,7 +158,7 @@ namespace DamageNumbersPro.Demo
 
         public DNP_PrefabSettings GetSettings()
         {
-            if(currentSettings == null)
+            if (currentSettings == null)
             {
                 currentSettings = prefabs[currentIndex].gameObject.AddComponent<DNP_PrefabSettings>();
             }

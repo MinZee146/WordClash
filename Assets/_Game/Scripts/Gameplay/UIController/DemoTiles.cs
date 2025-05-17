@@ -22,10 +22,10 @@ public class DemoTiles : Singleton<DemoTiles>
     private Tween _cursorTween;
     private CoroutineHandle _shakeConfirmCoroutine;
 
-    private void OnEnable()
+  private void OnEnable()
     {
         _graphicRaycaster = GetComponentInParent<GraphicRaycaster>();
-        _eventSystem = FindObjectOfType<EventSystem>();
+        _eventSystem = FindFirstObjectByType<EventSystem>();
         SetTemporaryCoordinates();
         StartConfirmShakeRoutine();
     }
