@@ -12,11 +12,8 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : SingletonPersistent<UIManager>
 {
-    [SerializeField] private GameObject _popupBG;
-    [SerializeField] private GameObject _loadingBG, _currency, _adBreakMenu;
-    [SerializeField] private GameObject _coinsAttractor;
+    [SerializeField] private GameObject _popupBG, _homeScreen, _loadingBG, _currency, _coinsAttractor;
     [SerializeField] private Sprite _soundOn, _soundOff;
-    [SerializeField] private Button _btnAddCoins;
 
     private AsyncOperationHandle<SceneInstance> _sceneStartupHandle;
     private AsyncOperationHandle<SceneInstance> _sceneGameplayHandle;
@@ -74,6 +71,7 @@ public class UIManager : SingletonPersistent<UIManager>
 
                 LoadingAnimation.Instance.AnimationLoaded(0.5f, 0.25f);
                 GameManager.Instance.CurrentLocation = GameManager.Location.Gameplay;
+                _homeScreen.SetActive(false);
             };
         });
     }
@@ -104,6 +102,7 @@ public class UIManager : SingletonPersistent<UIManager>
 
                 GameManager.Instance.CurrentLocation = GameManager.Location.Home;
                 LoadingAnimation.Instance.AnimationLoaded(0.5f, 0.25f);
+                _homeScreen.SetActive(true);
             };
         });
     }
@@ -111,11 +110,6 @@ public class UIManager : SingletonPersistent<UIManager>
     public void ToggleCoinBar(bool state)
     {
         ToggleCurrency(state);
-    }
-
-    public void OnClickAddCoinButton()
-    {
-        PopUpsManager.Instance.CloseCurrentPopUp();
     }
     #endregion
 
@@ -159,17 +153,10 @@ public class UIManager : SingletonPersistent<UIManager>
 
         if (_popupBG.activeSelf)
         {
-            if (_adBreakMenu.activeSelf)
-                ToggleAdBreak(false);
-
             PopUpsManager.Instance.CloseAllPopUps();
         }
     }
 
-    public void ToggleAdBreak(bool setActive)
-    {
-        PanelAnimation(_adBreakMenu, setActive);
-    }
     #endregion
 
     #region ToggleUI
@@ -188,7 +175,6 @@ public class UIManager : SingletonPersistent<UIManager>
     public void ToggleCurrency(bool setActive)
     {
         _currency.SetActive(setActive);
-        _btnAddCoins.gameObject.SetActive(SceneManager.GetActiveScene().name == "Home" && NameRegister.Instance.Registered);
     }
 
     public void ToggleInspectPowerUps()

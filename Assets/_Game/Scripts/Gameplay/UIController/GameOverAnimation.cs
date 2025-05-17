@@ -102,6 +102,7 @@ public class GameOverAnimation : MonoBehaviour
         _coinsEarnedText.text = targetCoins.ToString();
 
         CurrencyManager.Instance.CoinsAttract(Convert.ToInt32(_coinsEarnedText.text), _coinIconRect.position);
+        UIManager.Instance.SetButtonInGameOverActive(PopUpsManager.Instance.HomeButton.gameObject, PopUpsManager.Instance.ReplayButton.gameObject);
     }
 
     private void WobbleAndRainbow(TextMeshProUGUI text)

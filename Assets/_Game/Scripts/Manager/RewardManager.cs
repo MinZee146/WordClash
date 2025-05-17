@@ -6,8 +6,7 @@ using UnityEngine;
 public class RewardManager : SingletonPersistent<RewardManager>
 {
     [NonSerialized] public int TotalAdDuration;
-    [SerializeField] private GameObject _dailySpinNotifier, _dailyAdButton;
-    [SerializeField] private TextMeshProUGUI _dailyAdCount;
+    [SerializeField] private GameObject _dailySpinNotifier;
 
     public void Initialize()
     {
@@ -54,12 +53,6 @@ public class RewardManager : SingletonPersistent<RewardManager>
             PlayerPrefs.SetString(GameConstants.PLAYER_PREFS_LAST_DAILY_AD_RESET, currentDate);
             PlayerPrefs.SetInt(GameConstants.PLAYER_PREFS_DAILY_AD_COUNT, 5);
         }
-
-        _dailyAdCount.text = PlayerPrefs.GetInt(GameConstants.PLAYER_PREFS_DAILY_AD_COUNT).ToString();
-
-#if UNITY_EDITOR
-        SetAdCoinsButton(PlayerPrefs.GetInt(GameConstants.PLAYER_PREFS_DAILY_AD_COUNT) > 0);
-#endif
     }
 
     public void GrantHints(GameObject warning)
@@ -81,11 +74,5 @@ public class RewardManager : SingletonPersistent<RewardManager>
                 warning.SetActive(false);
             });
         }
-    }
-
-    public void SetAdCoinsButton(bool state)
-    {
-        _dailyAdButton.GetComponent<CanvasGroup>().interactable = state;
-        _dailyAdButton.GetComponent<CanvasGroup>().alpha = state ? 1f : 0.8f;
     }
 }

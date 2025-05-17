@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using MEC;
 using TMPro;
 using UnityEngine;
 
@@ -39,15 +36,9 @@ public class NameRegister : SingletonPersistent<NameRegister>
         }
     }
 
-    private IEnumerator<float> Wait(float seconds, Action action)
-    {
-        yield return Timing.WaitForSeconds(seconds);
-
-        action.Invoke();
-    }
-
     public void ChangeNameAndAvatar()
     {
+        PopUpsManager.Instance.ToggleNameRegisterPopUp(true);
         PopUpsManager.Instance.ToggleStatsPopUp(false);
     }
 }

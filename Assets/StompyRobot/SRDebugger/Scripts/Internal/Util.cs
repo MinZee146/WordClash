@@ -55,7 +55,7 @@ namespace SRDebugger.Internal
                 return false;
             }
 
-            var e = Object.FindObjectOfType<EventSystem>();
+            var e = Object.FindFirstObjectByType<EventSystem>();
 
             // Check if EventSystem is in the scene but not registered yet
             if (e != null && e.gameObject.activeSelf && e.enabled)
@@ -198,7 +198,7 @@ namespace SRDebugger.Internal
                     }
 
                     // Skip methods with parameters or non-void return type
-                    if (methodInfo.ReturnType != typeof (void) || methodInfo.GetParameters().Length > 0)
+                    if (methodInfo.ReturnType != typeof(void) || methodInfo.GetParameters().Length > 0)
                     {
                         continue;
                     }

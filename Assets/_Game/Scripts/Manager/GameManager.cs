@@ -30,14 +30,10 @@ public class GameManager : SingletonPersistent<GameManager>
         AudioManager.Instance.Initialize();
         UIManager.Instance.Initialize();
         CurrencyManager.Instance.Initialize();
-        PlayerDataTracker.Instance.Initialize();
-        GameDictionary.Instance.Initialize();
-
-        //
-        UIManager.Instance.ToggleCoinBar(true);
-        UIManager.Instance.ToggleCoinsAttractor(true);
         RewardManager.Instance.Initialize();
         ThemeManager.Instance.Initialize();
+        PlayerDataTracker.Instance.Initialize();
+        GameDictionary.Instance.Initialize();
     }
 
     public void NewGame()
