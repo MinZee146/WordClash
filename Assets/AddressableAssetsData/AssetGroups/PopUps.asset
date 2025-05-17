@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: PopUps
   m_EditorClassIdentifier: 
   m_GroupName: PopUps
-  m_Data:
-    m_SerializedData: []
   m_GUID: 04a549e8ef196a34b98c693ecf796478
   m_SerializeEntries:
   - m_GUID: 06659e0b3b34d634b8244485e88fefc2
@@ -37,6 +35,12 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44b84a08fad222540b278f29015cd21f
+    m_Address: Assets/_Game/Prefabs/PopUps/Great.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Great
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ee54eb3f0656ce428d72a7dbc4db434
     m_Address: Assets/_Game/Addressables/PopUps/AvatarPopup.prefab
     m_ReadOnly: 0
@@ -52,10 +56,22 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 602dac55a55869041a72006717bc0f20
+    m_Address: Assets/_Game/Prefabs/PopUps/Fabulous.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Fabulous
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6826c91fbf98f474c99c9bde799b90cf
     m_Address: Assets/_Game/Addressables/PopUps/InstructionPopup.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c19b9b25edc2884f87d150c0c6445ca
+    m_Address: Assets/_Game/Prefabs/PopUps/BestWordPopUps.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - bestword
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7dcd02bf3d4c3714f8b3d2c5048e7afd
     m_Address: Assets/_Game/Addressables/PopUps/ThemePopup.prefab
@@ -92,10 +108,22 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9d703277b76bfb49ad47a4077ee39f4
+    m_Address: Assets/_Game/Prefabs/PopUps/Amazing.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Amazing
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: baefafb15b6e40242ad1c09ae1570971
     m_Address: Assets/_Game/Addressables/PopUps/DailyRewardPopup.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cede8295b8857374c802be7bdddbcb40
+    m_Address: Assets/_Game/Prefabs/PopUps/Spectacular.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Spectacular
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d1912d914f2a9b7479f795229fc46353
     m_Address: Assets/_Game/Addressables/PopUps/PowerupsPopup.prefab
