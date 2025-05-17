@@ -48,6 +48,6 @@ public class NameRegister : SingletonPersistent<NameRegister>
 
     public void ChangeNameAndAvatar()
     {
-        PopUpsManager.Instance.ToggleStatsPopUp(false, () => PopUpsManager.Instance.ToggleNameRegisterPopUp(true));
+        PopUpsManager.Instance.ToggleStatsPopUp(false);
     }
 }

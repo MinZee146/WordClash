@@ -32,9 +32,9 @@ public class GameManager : SingletonPersistent<GameManager>
         CurrencyManager.Instance.Initialize();
         PlayerDataTracker.Instance.Initialize();
         GameDictionary.Instance.Initialize();
-        
+
         //
-        UIManager.Instance.ToggleCoinBarAndHomeScreen(true);
+        UIManager.Instance.ToggleCoinBar(true);
         UIManager.Instance.ToggleCoinsAttractor(true);
         RewardManager.Instance.Initialize();
         ThemeManager.Instance.Initialize();

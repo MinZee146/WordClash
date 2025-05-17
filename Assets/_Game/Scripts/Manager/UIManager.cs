@@ -66,7 +66,7 @@ public class UIManager : SingletonPersistent<UIManager>
                     Addressables.UnloadSceneAsync(_sceneStartupHandle, true);
                 }
 
-                ToggleCoinBarAndHomeScreen(false);
+                ToggleCoinBar(false);
 
                 GameManager.Instance.NewGame();
                 HintCounter.Instance.FetchHintPref();
@@ -100,7 +100,7 @@ public class UIManager : SingletonPersistent<UIManager>
                     Addressables.UnloadSceneAsync(_sceneGameplayHandle, true);
                 }
 
-                ToggleCoinBarAndHomeScreen(true);
+                ToggleCoinBar(true);
 
                 GameManager.Instance.CurrentLocation = GameManager.Location.Home;
                 LoadingAnimation.Instance.AnimationLoaded(0.5f, 0.25f);
@@ -108,9 +108,8 @@ public class UIManager : SingletonPersistent<UIManager>
         });
     }
 
-    public void ToggleCoinBarAndHomeScreen(bool state)
+    public void ToggleCoinBar(bool state)
     {
-        HomeUIController.Instance.ToggleHomeUI(state);
         ToggleCurrency(state);
     }
 
@@ -147,10 +146,6 @@ public class UIManager : SingletonPersistent<UIManager>
                 if (SceneManager.GetActiveScene().name == "Gameplay")
                 {
                     GameUIController.Instance.GameplayCanvasGroup.blocksRaycasts = true;
-                }
-                else if (SceneManager.GetActiveScene().name == "Home")
-                {
-                    HomeUIController.Instance.HomeCanvasGroup.blocksRaycasts = true;
                 }
 
                 UICanvasGroup.blocksRaycasts = true;

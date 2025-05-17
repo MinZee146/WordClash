@@ -300,17 +300,17 @@ public class PopUpsManager : Singleton<PopUpsManager>
         TogglePopUp(_credits, setActive,
         onLoaded: (popUp) =>
         {
-            UIManager.Instance.ToggleCoinBarAndHomeScreen(false);
+            UIManager.Instance.ToggleCoinBar(false);
 
             popUp.GetComponentInChildren<Button>().onClick.AddListener(() =>
             {
                 ToggleCreditsPopUp(false);
-                UIManager.Instance.ToggleCoinBarAndHomeScreen(true);
+                UIManager.Instance.ToggleCoinBar(true);
             });
         });
     }
 
-    public void ToggleStatsPopUp(bool setActive, Action changeNameAndAvatar = null)
+    public void ToggleStatsPopUp(bool setActive)
     {
         AudioManager.Instance.PlaySFX("ButtonClick");
         TogglePopUp(_stats, setActive,
@@ -327,10 +327,6 @@ public class PopUpsManager : Singleton<PopUpsManager>
             });
 
             LoadStats.Instance.Load();
-        },
-        onClosed: () =>
-        {
-            changeNameAndAvatar?.Invoke();
         });
     }
 
@@ -437,10 +433,6 @@ public class PopUpsManager : Singleton<PopUpsManager>
         {
             Board.Instance.IsDragging = false;
             GameUIController.Instance.GameplayCanvasGroup.blocksRaycasts = false;
-        }
-        else if (SceneManager.GetActiveScene().name == "Home")
-        {
-            HomeUIController.Instance.HomeCanvasGroup.blocksRaycasts = false;
         }
 
         UIManager.Instance.UICanvasGroup.blocksRaycasts = false;

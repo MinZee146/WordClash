@@ -456,6 +456,10 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 54
       objectReference: {fileID: 0}
+    - target: {fileID: 7202290820188521319, guid: 6ab4bc4254eb04bf08deefd6e7a4b8a9, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 8433785173112033298, guid: 6ab4bc4254eb04bf08deefd6e7a4b8a9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5893,7 +5897,6 @@ GameObject:
   - component: {fileID: 337839486}
   - component: {fileID: 337839485}
   - component: {fileID: 337839484}
-  - component: {fileID: 337839492}
   m_Layer: 5
   m_Name: UIManager
   m_TagString: Untagged
@@ -6039,11 +6042,11 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1098674485}
   - {fileID: 169150184}
   - {fileID: 36449369}
   - {fileID: 2024340780}
   - {fileID: 572689358}
-  - {fileID: 1098674485}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -6051,22 +6054,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &337839492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 337839483}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f7d9040bb176e94d8879b44f51bf145, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _navBar: {fileID: 0}
-  _homeScreen: {fileID: 1098674484}
-  _shopScreen: {fileID: 0}
-  HomeCanvasGroup: {fileID: 0}
 --- !u!1 &359540302
 GameObject:
   m_ObjectHideFlags: 0
@@ -6397,6 +6384,10 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2593065495519765830, guid: b13c21af49a0945dfb4f4df302bbc84e, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 2593065495519765831, guid: b13c21af49a0945dfb4f4df302bbc84e, type: 3}
       propertyPath: m_SizeDelta.x
       value: 200
@@ -6567,10 +6558,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HomeUIController, Assembly-CSharp
-        m_MethodName: OpenStats
-        m_Mode: 1
+      - m_Target: {fileID: 36449370}
+        m_TargetAssemblyTypeName: PopUpsManager, Assembly-CSharp
+        m_MethodName: ToggleStatsPopUp
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11864,6 +11855,10 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 54
       objectReference: {fileID: 0}
+    - target: {fileID: 7202290820188521319, guid: 6ab4bc4254eb04bf08deefd6e7a4b8a9, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 8433785173112033298, guid: 6ab4bc4254eb04bf08deefd6e7a4b8a9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -12021,9 +12016,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HomeUIController, Assembly-CSharp
-        m_MethodName: PlayWithComputer
+      - m_Target: {fileID: 337839487}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: LoadGameScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12653,6 +12648,10 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2593065495519765830, guid: b13c21af49a0945dfb4f4df302bbc84e, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 2593065495519765831, guid: b13c21af49a0945dfb4f4df302bbc84e, type: 3}
       propertyPath: m_SizeDelta.x
       value: 200
@@ -12823,10 +12822,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HomeUIController, Assembly-CSharp
-        m_MethodName: OpenThemeSelector
-        m_Mode: 1
+      - m_Target: {fileID: 36449370}
+        m_TargetAssemblyTypeName: PopUpsManager, Assembly-CSharp
+        m_MethodName: ToggleThemePopUp
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -13078,6 +13077,10 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2593065495519765830, guid: b13c21af49a0945dfb4f4df302bbc84e, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 2593065495519765831, guid: b13c21af49a0945dfb4f4df302bbc84e, type: 3}
       propertyPath: m_SizeDelta.x
       value: 200
@@ -13248,10 +13251,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HomeUIController, Assembly-CSharp
-        m_MethodName: OpenSettings
-        m_Mode: 1
+      - m_Target: {fileID: 36449370}
+        m_TargetAssemblyTypeName: PopUpsManager, Assembly-CSharp
+        m_MethodName: ToggleSettingsPopUp
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -19967,6 +19970,10 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2593065495519765830, guid: b13c21af49a0945dfb4f4df302bbc84e, type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
+      objectReference: {fileID: 0}
     - target: {fileID: 2593065495519765831, guid: b13c21af49a0945dfb4f4df302bbc84e, type: 3}
       propertyPath: m_SizeDelta.x
       value: 200
@@ -20140,10 +20147,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: HomeUIController, Assembly-CSharp
-        m_MethodName: OpenDailyReward
-        m_Mode: 1
+      - m_Target: {fileID: 36449370}
+        m_TargetAssemblyTypeName: PopUpsManager, Assembly-CSharp
+        m_MethodName: ToggleDailyRewardPopUp
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
