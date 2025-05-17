@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 926f070c8ac4e1c48a10c5e9d76d5731, type: 3}
+  m_Name: GameConfigs
+  m_EditorClassIdentifier: 
+  AIDifficulty: 0.3
+  InitialHints: 5
+  InitialCoins: 200
+  CoinsPerAd: 20
+  CoinsPerGame: 20
+  CheatsEnabled: 1
+  InternetCheck: 0
+  RatingShowAtMatch: 2
+  AdsStartFromMatch: 3
