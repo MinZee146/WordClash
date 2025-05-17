@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
+  m_Name: AddressableAssetSettings
+  m_EditorClassIdentifier: 
+  m_DefaultGroup: 4541f3e4c0d7a174aac07d0c3e1d39fe
+  m_currentHash:
+    serializedVersion: 2
+    Hash: 6359b022c86213a8bb00d7005827e002
+  m_OptimizeCatalogSize: 0
+  m_BuildRemoteCatalog: 0
+  m_BundleLocalCatalog: 0
+  m_CatalogRequestsTimeout: 0
+  m_DisableCatalogUpdateOnStart: 0
+  m_IgnoreUnsupportedFilesInBuild: 0
+  m_UniqueBundleIds: 0
+  m_NonRecursiveBuilding: 1
+  m_CCDEnabled: 0
+  m_maxConcurrentWebRequests: 3
+  m_ContiguousBundles: 1
+  m_StripUnityVersionFromBundleBuild: 0
+  m_DisableVisibleSubAssetRepresentations: 0
+  m_ShaderBundleNaming: 0
+  m_ShaderBundleCustomNaming: 
+  m_MonoScriptBundleNaming: 0
+  m_CheckForContentUpdateRestrictionsOption: 0
+  m_MonoScriptBundleCustomNaming: 
+  m_RemoteCatalogBuildPath:
+    m_Id: 
+  m_RemoteCatalogLoadPath:
+    m_Id: 
+  m_ContentStateBuildPathProfileVariableName: 
+  m_CustomContentStateBuildPath: 
+  m_ContentStateBuildPath: 
+  m_BuildAddressablesWithPlayerBuild: 0
+  m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
+  m_GroupAssets:
+  - {fileID: 11400000, guid: 124774b09406d95499f48742d1aa1e3f, type: 2}
+  - {fileID: 11400000, guid: 4e8506a22ff21904ba90eae56c7b3e9e, type: 2}
+  - {fileID: 11400000, guid: e26bedfda113c8848a02006ddf79a1e0, type: 2}
+  - {fileID: 11400000, guid: c5380bd278f38ae478a773efa7a04b4c, type: 2}
+  - {fileID: 11400000, guid: c5a69ae6952f9484b81372c7b98b078f, type: 2}
+  - {fileID: 11400000, guid: 796159c2b77377744b3e054c4a7908e9, type: 2}
+  - {fileID: 11400000, guid: c21b43119e610d148beda60d6bbf5234, type: 2}
+  - {fileID: 11400000, guid: 908d2aaf9745bf547b6f8074486d4a23, type: 2}
+  - {fileID: 11400000, guid: 4861fef828cb6174f9595b84fa5136cb, type: 2}
+  m_BuildSettings:
+    m_CompileScriptsInVirtualMode: 0
+    m_CleanupStreamingAssetsAfterBuilds: 1
+    m_LogResourceManagerExceptions: 1
+    m_BundleBuildPath: Temp/com.unity.addressables/AssetBundles
+  m_ProfileSettings:
+    m_Profiles:
+    - m_InheritedParent: 
+      m_Id: 78fb93d780a51524784c66e8961f5160
+      m_ProfileName: Default
+      m_Values:
+      - m_Id: 05ef016366f34844d83c6d3478514d8c
+        m_Value: ServerData/[BuildTarget]
+      - m_Id: 1241b36869c87034dacaa2f817cf0356
+        m_Value: '[UnityEditor.EditorUserBuildSettings.activeBuildTarget]'
+      - m_Id: 13398118a94966e45937f806736ee71f
+        m_Value: '[UnityEngine.AddressableAssets.Addressables.BuildPath]/[BuildTarget]'
+      - m_Id: 256bc1379d5ee534bae17ec6c5f32ae7
+        m_Value: '{UnityEngine.AddressableAssets.Addressables.RuntimePath}/[BuildTarget]'
+      - m_Id: 348788e0bf772644ea9c9c0d7e1cfdf3
+        m_Value: http://[PrivateIpAddress]:[HostingServicePort]
+    m_ProfileEntryNames:
+    - m_Id: 05ef016366f34844d83c6d3478514d8c
+      m_Name: Remote.BuildPath
+      m_InlineUsage: 0
+    - m_Id: 1241b36869c87034dacaa2f817cf0356
+      m_Name: BuildTarget
+      m_InlineUsage: 0
+    - m_Id: 13398118a94966e45937f806736ee71f
+      m_Name: Local.BuildPath
+      m_InlineUsage: 0
+    - m_Id: 256bc1379d5ee534bae17ec6c5f32ae7
+      m_Name: Local.LoadPath
+      m_InlineUsage: 0
+    - m_Id: 348788e0bf772644ea9c9c0d7e1cfdf3
+      m_Name: Remote.LoadPath
+      m_InlineUsage: 0
+    m_ProfileVersion: 1
+  m_LabelTable:
+    m_LabelNames:
+    - Tile
+    - PowerUp
+    - ospd
+    - Amazing
+    - Fabulous
+    - Great
+    - Spectacular
+    - bestword
+    - Theme
+    - Ads
+    - Coin
+    - Bundle
+    - Male01
+    - Male08
+    - Male26
+    - Female14
+    - Female20
+    - Female19
+    - Grief
+    - ShortPenalty
+    - RevealWord
+    - DoubleScore
+    - Shuffle
+    - ShortBonus
+    - Cleanse
+    - LongBonus
+    - ExtraTurn
+    - TimeFreeze
+    - ReplaceLetter
+  m_SchemaTemplates: []
+  m_GroupTemplateObjects:
+  - {fileID: 11400000, guid: f3a850510b583cd47b608bb8f3bd1b64, type: 2}
+  m_InitializationObjects: []
+  m_CertificateHandlerType:
+    m_AssemblyName: 
+    m_ClassName: 
+  m_ActivePlayerDataBuilderIndex: 3
+  m_DataBuilders:
+  - {fileID: 11400000, guid: ab0562842ea39c545abdb8610278971a, type: 2}
+  - {fileID: 11400000, guid: b8fc935282cc5ca418535299642121c8, type: 2}
+  - {fileID: 11400000, guid: 29b81a7b7d54a6c49897c9babca20315, type: 2}
+  - {fileID: 11400000, guid: c30900007e7a60047b15904146dc3418, type: 2}
+  m_ActiveProfileId: 78fb93d780a51524784c66e8961f5160
+  m_HostingServicesManager:
+    m_HostingServiceInfos: []
+    m_Settings: {fileID: 11400000}
+    m_NextInstanceId: 0
+    m_RegisteredServiceTypeRefs: []
+    m_PingTimeoutInMilliseconds: 5000

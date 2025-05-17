@@ -1,0 +1,181 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Tiles
+  m_EditorClassIdentifier: 
+  m_GroupName: Tiles
+  m_Data:
+    m_SerializedData: []
+  m_GUID: d9dd8eff87b4edb41beb184961d4bc89
+  m_SerializeEntries:
+  - m_GUID: 012af41b10af5fb48b8ddfa1e4aa4f95
+    m_Address: Assets/Addressables/Tiles/P.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 016f9b66f5364b048b622bb5fdc24228
+    m_Address: Assets/Addressables/Tiles/C.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0c74d89cf14f1fd448c4e077d3479880
+    m_Address: Assets/Addressables/Tiles/G.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0f461a5eaaa7364499409f90f68bece0
+    m_Address: Assets/Addressables/Tiles/U.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 10a7826241888e54cb286ba3231e234f
+    m_Address: Assets/Addressables/Tiles/D.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 11a872738c25a244d92bbcefa9c24af5
+    m_Address: Assets/Addressables/Tiles/M.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 190446f3dae34ec489755503ddfca4b0
+    m_Address: Assets/Addressables/Tiles/Y.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2006f9cc8778f6046a25a687d3c4b22b
+    m_Address: Assets/Addressables/Tiles/H.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22dda776e6a075b40b7a8eb15750532e
+    m_Address: Assets/Addressables/Tiles/J.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4b02877d625a08348819294654639887
+    m_Address: Assets/Addressables/Tiles/L.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 554155bfebb9d6d40ad344c70817f78c
+    m_Address: Assets/Addressables/Tiles/N.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5acce8e11edc49b4a939ee7f3abc9eff
+    m_Address: Assets/Addressables/Tiles/X.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7049c53fec7a02e469b80d21913e8038
+    m_Address: Assets/Addressables/Tiles/F.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77c1d853aeb66834dad8b462866e055c
+    m_Address: Assets/Addressables/Tiles/B.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 938ecfe0296c4b34283fdb6a3bf55ea9
+    m_Address: Assets/Addressables/Tiles/A.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 940a35518a5caf74a8d052c8320f1dac
+    m_Address: Assets/Addressables/Tiles/I.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a52d622afbb14ff4ba4875c921852b3d
+    m_Address: Assets/Addressables/Tiles/W.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad6ac3fefd9d0ab4bac944dc25ded0df
+    m_Address: Assets/Addressables/Tiles/T.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae8d15c184d3ad1498f1df1e6d8b7a93
+    m_Address: Assets/Addressables/Tiles/O.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4f55fe4d2318014e8f54cd1e9585598
+    m_Address: Assets/Addressables/Tiles/S.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be159193ba346af4d9a06c1d3a1ff3aa
+    m_Address: Assets/Addressables/Tiles/R.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c20422d0a8354d640ae1ed699c60784c
+    m_Address: Assets/Addressables/Tiles/Q.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d92c725ffdd026e40b150ebce9bcbd37
+    m_Address: Assets/Addressables/Tiles/V.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e26caa872afcb624f9fc58889b41a3e0
+    m_Address: Assets/Addressables/Tiles/K.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8ac5be8f5a853148ab16d85579a4d8a
+    m_Address: Assets/Addressables/Tiles/E.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e92fe005281185f4d9f7529ddf23b5da
+    m_Address: Assets/Addressables/Tiles/Z.asset
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tile
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: a3880b8fb25b90a4cada257dda67b2f5, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: eea18d4d49bbbbd40a39af5fb6ba9d66, type: 2}
+    - {fileID: 11400000, guid: d4b901131976df443ab6e337da6aec0c, type: 2}
