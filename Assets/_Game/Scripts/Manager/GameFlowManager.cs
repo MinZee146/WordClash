@@ -30,7 +30,6 @@ public class GameFlowManager : SingletonPersistent<GameFlowManager>
     public void HandleGameOver()
     {
         Timing.KillCoroutines("AI");
-        HintCounter.Instance.SetStatsAtRound();
 
         if (Round == 1)
         {

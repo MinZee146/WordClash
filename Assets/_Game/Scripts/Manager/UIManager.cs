@@ -83,7 +83,6 @@ public class UIManager : SingletonPersistent<UIManager>
         if (!GameManager.Instance.IsGameOver)
         {
             PlayerStatsManager.Instance.HasWonRound();
-            HintCounter.Instance.SetStatsAtRound();
         }
 
         LoadingAnimation.Instance.AnimationLoading(0.5f, () =>

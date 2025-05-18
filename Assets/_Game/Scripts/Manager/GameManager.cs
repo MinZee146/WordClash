@@ -27,10 +27,7 @@ public class GameManager : SingletonPersistent<GameManager>
         IsGameOver = false;
 
         GameFlowManager.Instance.StartGame();
-       
-
         PlayerStatsManager.Instance.ResetStats();
-        HintCounter.Instance.Reset();
     }
 
     public void Replay()
