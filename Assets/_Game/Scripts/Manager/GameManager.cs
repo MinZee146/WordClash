@@ -6,20 +6,6 @@ public class GameManager : SingletonPersistent<GameManager>
 {
     public bool IsGameOver { get; private set; }
 
-    public enum GameMode
-    {
-        PvC,
-        PvP,
-    }
-    public enum Location
-    {
-        Home,
-        Gameplay,
-    }
-
-    public GameMode CurrentGameMode = GameMode.PvC;
-    public Location CurrentLocation = Location.Home;
-
     private void Start()
     {
         Initialize();

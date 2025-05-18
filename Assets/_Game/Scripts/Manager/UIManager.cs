@@ -70,7 +70,6 @@ public class UIManager : SingletonPersistent<UIManager>
                 PopUpsPool.Instance.Instantiate();
 
                 LoadingAnimation.Instance.AnimationLoaded(0.5f, 0.25f);
-                GameManager.Instance.CurrentLocation = GameManager.Location.Gameplay;
                 _homeScreen.SetActive(false);
             };
         });
@@ -100,7 +99,6 @@ public class UIManager : SingletonPersistent<UIManager>
 
                 ToggleCoinBar(true);
 
-                GameManager.Instance.CurrentLocation = GameManager.Location.Home;
                 LoadingAnimation.Instance.AnimationLoaded(0.5f, 0.25f);
                 _homeScreen.SetActive(true);
             };
