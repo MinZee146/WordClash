@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using AssetKits.ParticleImage;
 using MEC;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScorePopUp : Singleton<ScorePopUp>
 {
@@ -14,9 +15,9 @@ public class ScorePopUp : Singleton<ScorePopUp>
 
     public IEnumerator<float> ScoreAttract(int rate, Transform startPosition, Action action)
     {
-        var starSprite = GameFlowManager.Instance.IsPlayerTurn ? _playerStar : _opponentStar;
+        var starSprite = GameFlowManager.Instance.IsPlayerTurn || SceneManager.GetActiveScene().name == "TimeChallengeMode" ? _playerStar : _opponentStar;
         var color = GameFlowManager.Instance.IsPlayerTurn ? Colors.FromHex("FFCC0080") : Colors.FromHex("FF555580");
-        var endPositon = GameFlowManager.Instance.IsPlayerTurn ? _playerScoreBoard.transform : _opponentScoreBoard.transform;
+        var endPositon = GameFlowManager.Instance.IsPlayerTurn || SceneManager.GetActiveScene().name == "TimeChallengeMode" ? _playerScoreBoard.transform : _opponentScoreBoard.transform;
 
         _particleScore.sprite = starSprite;
         _particleScore.trailColorOverLifetime = color;

@@ -2,6 +2,7 @@ using DG.Tweening;
 using Febucci.UI;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Notifier : Singleton<Notifier>
@@ -17,6 +18,12 @@ public class Notifier : Singleton<Notifier>
 
     public void OnTurnChanged()
     {
+        if (SceneManager.GetActiveScene().name == "TimeChallengeMode")
+        {
+            TimeChallengeCountdown();
+            return;
+        }
+
         _typewriter.ShowText(GameFlowManager.Instance.IsPlayerTurn ? $"Your turn" : $"Opponent's turn");
 
         if (!PowerUpsManager.Instance.CheckReplaceLetter)
@@ -141,5 +148,45 @@ public class Notifier : Singleton<Notifier>
 
         _currentTween?.Kill();
         _progressBar.SetActive(false);
+    }
+
+    public void TimeChallengeCountdown()
+    {
+        StopCountdown();
+        _progressBar.SetActive(true);
+        _isColorChanged = false;
+
+        var image = _progressBar.GetComponent<Image>();
+        image.color = Colors.FromHex("16CC00");
+        image.fillAmount = 1;
+        image.DOKill();
+        image.DOFade(1, 0);
+        image.fillOrigin = (int)Image.OriginHorizontal.Left;
+
+        _currentTween = DOTween.To(() => image.fillAmount, x => image.fillAmount = x, 0, 15)
+        .SetEase(Ease.Linear)
+        .OnUpdate(() =>
+        {
+            if (!_isColorChanged && image.fillAmount <= 0.3)
+            {
+                _isColorChanged = true;
+
+                image.color = Colors.FromHex("D30008");
+                image.DOFade(0, 0.2f).OnComplete(() =>
+                {
+                    image.DOFade(1, 0.2f).SetLoops(-1, LoopType.Yoyo);
+                });
+
+                AudioManager.Instance.PlaySideAudio("ClockTicking");
+                BottomBar.Instance.StartShakeRoutine();
+            }
+        })
+        .OnComplete(() =>
+        {
+            TimeChallengeMode.Instance.ResetUI();
+            TimeChallengeMode.Instance.ResetData();
+            WordDisplay.Instance.UndisplayWordAndScore();
+            AudioManager.Instance.PlaySFX("TimeOut");
+        });
     }
 }

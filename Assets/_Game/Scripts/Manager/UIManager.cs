@@ -75,15 +75,36 @@ public class UIManager : SingletonPersistent<UIManager>
         });
     }
 
+    public void LoadTimeModeScene()
+    {
+        AudioManager.Instance.PlaySFX("ButtonClick");
+        LoadingAnimation.Instance.AnimationLoading(0.5f, () =>
+        {
+            _sceneGameplayHandle = Addressables.LoadSceneAsync("Assets/_Game/Scenes/TimeChallengeMode.unity");
+            _sceneGameplayHandle.Completed += handle =>
+            {
+                if (_sceneStartupHandle.IsValid())
+                {
+                    Addressables.UnloadSceneAsync(_sceneStartupHandle, true);
+                }
+
+                ToggleCoinBar(false);
+
+                GameUIController.Instance.ToggleHintAndConfirm();
+                HintCounter.Instance.FetchHintPref();
+                PopUpsPool.Instance.Instantiate();
+                PlayerStatsManager.Instance.ResetStats();
+
+                LoadingAnimation.Instance.AnimationLoaded(0.5f, 0.25f);
+                _homeScreen.SetActive(false);
+            };
+        });
+    }
+
     public void LoadMenuScene()
     {
         DisableAllPanel();
         AudioManager.Instance.StopSideAudio();
-
-        if (!GameManager.Instance.IsGameOver)
-        {
-            PlayerStatsManager.Instance.HasWonRound();
-        }
 
         LoadingAnimation.Instance.AnimationLoading(0.5f, () =>
         {

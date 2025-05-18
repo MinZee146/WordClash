@@ -424,10 +424,10 @@ PrefabInstance:
     - target: {fileID: 1550752606724067422, guid: 6ab4bc4254eb04bf08deefd6e7a4b8a9, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4d315bf5f37e34f89b0d0e6e6d59a8de, type: 3}
+      objectReference: {fileID: 21300000, guid: 5e4aae278c8074ee18f57a24c8f2ce22, type: 3}
     - target: {fileID: 4157492847788454906, guid: 6ab4bc4254eb04bf08deefd6e7a4b8a9, type: 3}
       propertyPath: m_Name
-      value: PlayOnline
+      value: TImeChallengeMode
       objectReference: {fileID: 0}
     - target: {fileID: 4748485871920560556, guid: 6ab4bc4254eb04bf08deefd6e7a4b8a9, type: 3}
       propertyPath: m_SizeDelta.x
@@ -447,13 +447,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7202290820188521319, guid: 6ab4bc4254eb04bf08deefd6e7a4b8a9, type: 3}
       propertyPath: m_text
-      value: 'PLAY ONLINE
-
-        <size=35>-Coming Soon-</size>'
+      value: TIME CHALLENGE
       objectReference: {fileID: 0}
     - target: {fileID: 7202290820188521319, guid: 6ab4bc4254eb04bf08deefd6e7a4b8a9, type: 3}
       propertyPath: m_fontSize
-      value: 54
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202290820188521319, guid: 6ab4bc4254eb04bf08deefd6e7a4b8a9, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 7202290820188521319, guid: 6ab4bc4254eb04bf08deefd6e7a4b8a9, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
@@ -611,11 +613,23 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 64230102}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 337839487}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: LoadTimeModeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &169150181
 GameObject:
   m_ObjectHideFlags: 0
@@ -20041,8 +20055,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3c2347395ef2540a04f108bdd25caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentGameMode: 0
-  CurrentLocation: 0
 --- !u!4 &2147104227
 Transform:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UILine : MonoBehaviour
@@ -20,7 +21,7 @@ public class UILine : MonoBehaviour
 
     public void Validate()
     {
-        _image.color = GameFlowManager.Instance.IsPlayerTurn ? Colors.FromHex(GameConstants.COLORS_PLAYER) : Colors.FromHex(GameConstants.COLORS_OPPONENT);
+        _image.color = GameFlowManager.Instance.IsPlayerTurn || SceneManager.GetActiveScene().name == "TimeChallengeMode" ? Colors.FromHex(GameConstants.COLORS_PLAYER) : Colors.FromHex(GameConstants.COLORS_OPPONENT);
     }
 
     public void Invalidate()

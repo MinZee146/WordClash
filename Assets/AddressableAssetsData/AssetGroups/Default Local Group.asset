@@ -150,6 +150,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - Theme
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eec2f8076ad05644caaec9b68d4fedb8
+    m_Address: Assets/_Game/Scenes/TimeChallengeMode.unity
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f18d59f00f6774a3e8cdc78b5e3d1676
     m_Address: Assets/_Game/Sprites/Layer Lab/GUI Pro-CasualGame/ResourcesData/Sprites/Components/Icon_ItemIcons/512/Icon_Map.Png
     m_ReadOnly: 0

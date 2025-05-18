@@ -85,7 +85,6 @@ public class BottomBar : Singleton<BottomBar>
         }
     }
 
-
     public void SetSidePowerUpState(bool state)
     {
         if (!_usedShuffle)

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FoundWordData
 {
@@ -36,16 +37,33 @@ public class WordFinder : Singleton<WordFinder>
         _bestWord = "";
         _bestScore = 0;
 
-        Board.Instance.FoundWords.Clear();
-        _visited = new bool[Board.Rows, Board.ColsEven];
-
-        foreach (var tile in Board.Instance.TileList)
+        if (SceneManager.GetActiveScene().name == "TimeChallengeMode")
         {
-            var currentWord = "";
-            var currentScore = 0;
-            var currentPath = new List<Vector2Int>();
+            TimeChallengeMode.Instance.FoundWords.Clear();
+            _visited = new bool[TimeChallengeMode.Rows, TimeChallengeMode.ColsEven];
 
-            DFS(tile, currentWord, currentScore, currentPath);
+            foreach (var tile in TimeChallengeMode.Instance.TileList)
+            {
+                var currentWord = "";
+                var currentScore = 0;
+                var currentPath = new List<Vector2Int>();
+
+                DFS(tile, currentWord, currentScore, currentPath);
+            }
+        }
+        else
+        {
+            Board.Instance.FoundWords.Clear();
+            _visited = new bool[Board.Rows, Board.ColsEven];
+
+            foreach (var tile in Board.Instance.TileList)
+            {
+                var currentWord = "";
+                var currentScore = 0;
+                var currentPath = new List<Vector2Int>();
+
+                DFS(tile, currentWord, currentScore, currentPath);
+            }
         }
 
         FoundWords();
@@ -87,7 +105,14 @@ public class WordFinder : Singleton<WordFinder>
                 _bestWord = currentWord;
             }
 
-            Board.Instance.FoundWords[currentWord] = new FoundWordData(new List<Vector2Int>(currentPath), wordScore);
+            if (SceneManager.GetActiveScene().name == "TimeChallengeMode")
+            {
+                TimeChallengeMode.Instance.FoundWords[currentWord] = new FoundWordData(new List<Vector2Int>(currentPath), wordScore);
+            }
+            else
+            {
+                Board.Instance.FoundWords[currentWord] = new FoundWordData(new List<Vector2Int>(currentPath), wordScore);
+            }
         }
 
         _visited[tile.Row, tile.Column] = true;
@@ -103,7 +128,9 @@ public class WordFinder : Singleton<WordFinder>
 
     private List<Tile> GetNeighbors(Tile tile)
     {
-        return Board.Instance.TileList.Where(tile.IsAdjacent).ToList();
+        return SceneManager.GetActiveScene().name == "TimeChallengeMode" ?
+               TimeChallengeMode.Instance.TileList.Where(tile.IsAdjacent).ToList() :
+               Board.Instance.TileList.Where(tile.IsAdjacent).ToList();
     }
     #endregion
 
@@ -128,15 +155,30 @@ public class WordFinder : Singleton<WordFinder>
         {
             _hintIndex = 0;
 
-            var wordsWithMinLength = Board.Instance.FoundWords.Values
-            .Where(data => data.Path.Count >= 5)
-            .ToList();
+            var foundWords = SceneManager.GetActiveScene().name == "TimeChallengeMode"
+            ? TimeChallengeMode.Instance.FoundWords.Values
+            : Board.Instance.FoundWords.Values;
 
-            _currentHint = wordsWithMinLength.Any()
-                ? wordsWithMinLength[Random.Range(0, wordsWithMinLength.Count)].Path
-                : Board.Instance.FoundWords.Values.ElementAt(Random.Range(0, Board.Instance.FoundWords.Values.Count)).Path;
+            var wordsWithMinLength = foundWords
+                .Where(data => data.Path.Count >= 5)
+                .ToList();
 
-            Board.Instance.FoundWords.Keys.FirstOrDefault(word => Board.Instance.FoundWords[word].Path == _currentHint);
+            if (SceneManager.GetActiveScene().name == "TimeChallengeMode")
+            {
+                _currentHint = wordsWithMinLength.Any()
+                                    ? wordsWithMinLength[Random.Range(0, wordsWithMinLength.Count)].Path
+                                    : TimeChallengeMode.Instance.FoundWords.Values.ElementAt(Random.Range(0, TimeChallengeMode.Instance.FoundWords.Values.Count)).Path;
+
+                TimeChallengeMode.Instance.FoundWords.Keys.FirstOrDefault(word => TimeChallengeMode.Instance.FoundWords[word].Path == _currentHint);
+            }
+            else
+            {
+                _currentHint = wordsWithMinLength.Any()
+                    ? wordsWithMinLength[Random.Range(0, wordsWithMinLength.Count)].Path
+                    : Board.Instance.FoundWords.Values.ElementAt(Random.Range(0, Board.Instance.FoundWords.Values.Count)).Path;
+
+                Board.Instance.FoundWords.Keys.FirstOrDefault(word => Board.Instance.FoundWords[word].Path == _currentHint);
+            }
         }
 
         if (_hintIndex < _currentHint.Count)
@@ -157,7 +199,9 @@ public class WordFinder : Singleton<WordFinder>
         var sequence = DOTween.Sequence();
 
         foreach (var tile in from pos in subList
-                             select Board.Instance.TileList.FirstOrDefault(t => t.Row == pos.x && t.Column == pos.y))
+                             select SceneManager.GetActiveScene().name == "TimeChallengeMode" ?
+                             TimeChallengeMode.Instance.TileList.FirstOrDefault(t => t.Row == pos.x && t.Column == pos.y) :
+                             Board.Instance.TileList.FirstOrDefault(t => t.Row == pos.x && t.Column == pos.y))
         {
             sequence.Append(tile.Hint(false));
         }
@@ -167,7 +211,9 @@ public class WordFinder : Singleton<WordFinder>
             var subSequence = DOTween.Sequence();
 
             foreach (var tile in from pos in subList
-                                 select Board.Instance.TileList.FirstOrDefault(t => t.Row == pos.x && t.Column == pos.y))
+                                 select SceneManager.GetActiveScene().name == "TimeChallengeMode" ?
+                                TimeChallengeMode.Instance.TileList.FirstOrDefault(t => t.Row == pos.x && t.Column == pos.y) :
+                                Board.Instance.TileList.FirstOrDefault(t => t.Row == pos.x && t.Column == pos.y))
             {
                 subSequence.Join(tile.Hint(true));
             }
@@ -195,7 +241,9 @@ public class WordFinder : Singleton<WordFinder>
 
     private bool CheckIfHintIsLost()
     {
-        return Board.Instance.FoundWords.Values.Any(data => data.Path == _currentHint);
+        return SceneManager.GetActiveScene().name == "TimeChallengeMode" ?
+        TimeChallengeMode.Instance.FoundWords.Values.Any(data => data.Path == _currentHint) :
+        Board.Instance.FoundWords.Values.Any(data => data.Path == _currentHint);
     }
 
     public void DeleteCurrentHint()

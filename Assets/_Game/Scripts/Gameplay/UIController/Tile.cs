@@ -3,6 +3,7 @@ using DG.Tweening;
 using MEC;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Tile : MonoBehaviour
@@ -74,7 +75,7 @@ public class Tile : MonoBehaviour
 
     public void ValidateWord()
     {
-        _innerCircle.color = GameFlowManager.Instance.IsPlayerTurn ? _validatedTileColor : _opponentValidColor;
+        _innerCircle.color = GameFlowManager.Instance.IsPlayerTurn || SceneManager.GetActiveScene().name == "TimeChallengeMode" ? _validatedTileColor : _opponentValidColor;
         _letterText.color = _scoreText.color = _lightText;
     }
 

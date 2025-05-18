@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MEC;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStatsManager : Singleton<PlayerStatsManager>
 {
@@ -16,16 +17,22 @@ public class PlayerStatsManager : Singleton<PlayerStatsManager>
     public string OpponentName => _opponentName.text;
     public int PlayerScore => _playerCurrentScore;
     public int OpponentScore => _opponentCurrentScore;
-    public int PlayerScoreAtRound { get; private set; }
-    public int OpponentScoreAtRound { get; private set; }
 
     public void ResetStats()
     {
+        if (SceneManager.GetActiveScene().name == "TimeChallengeMode")
+        {
+            _playerCurrentScore = 0;
+            _playerBestScore = 0;
+            _playerBestWord = "";
+            _playerScore.text = "0";
+            return;
+        }
+
         _playerName.text = "You";
         _opponentName.text = "Computer";
         _playerScore.text = _opponentScore.text = "0";
 
-        PlayerScoreAtRound = OpponentScoreAtRound = 0;
         _playerCurrentScore = _opponentCurrentScore = 0;
         _playerBestScore = _opponentBestScore = 0;
         _playerBestWord = _opponentBestWord = "";
@@ -33,7 +40,7 @@ public class PlayerStatsManager : Singleton<PlayerStatsManager>
 
     public void UpdateStats(string playerWord, string opponentWord, int score)
     {
-        if (GameFlowManager.Instance.IsPlayerTurn)
+        if (GameFlowManager.Instance.IsPlayerTurn || SceneManager.GetActiveScene().name == "TimeChallengeMode")
         {
             Timing.RunCoroutine(UpdatePlayerScore(score));
             if (score <= _playerBestScore) return;
@@ -114,13 +121,5 @@ public class PlayerStatsManager : Singleton<PlayerStatsManager>
     public void LogStats()
     {
         PlayerDataTracker.Instance.LogBattleResult(IsPlayerWon(), _playerBestWord, _playerBestScore);
-    }
-
-    public bool HasWonRound()
-    {
-        PlayerScoreAtRound = PlayerScore - PlayerScoreAtRound;
-        OpponentScoreAtRound = OpponentScore - OpponentScoreAtRound;
-
-        return PlayerScoreAtRound > OpponentScoreAtRound;
     }
 }

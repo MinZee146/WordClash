@@ -4,6 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameUIController : Singleton<GameUIController>
@@ -38,6 +39,8 @@ public class GameUIController : Singleton<GameUIController>
 
     private void GetAvatar()
     {
+        if (SceneManager.GetActiveScene().name == "TimeChallengeMode") return;
+
         var avatarKey = PlayerPrefs.GetString(GameConstants.PLAYER_PREFS_CURRENT_AVATAR);
 
         Addressables.LoadAssetAsync<Sprite>(avatarKey).Completed += handle =>
@@ -73,7 +76,7 @@ public class GameUIController : Singleton<GameUIController>
         _hintButton.transform.DOKill();
         _confirmButton.transform.DOKill();
 
-        if (!display || !GameFlowManager.Instance.IsPlayerTurn)
+        if (!display || (!GameFlowManager.Instance.IsPlayerTurn && SceneManager.GetActiveScene().name != "TimeChallengeMode"))
         {
             _hintButton.transform.DOScale(Vector3.zero, 0.15f).OnComplete(() => _hintButton.SetActive(false));
             _confirmButton.transform.DOScale(Vector3.zero, 0.15f).OnComplete(() => _confirmButton.SetActive(false));
