@@ -13,64 +13,8 @@ MonoBehaviour:
   m_Name: IAPItems
   m_EditorClassIdentifier: 
   m_GroupName: IAPItems
-  m_Data:
-    m_SerializedData: []
   m_GUID: 0cc8eb8cd267ceb43a3399c544de9b03
-  m_SerializeEntries:
-  - m_GUID: 1ae703b6f5315944b98fc7dac6b5e19b
-    m_Address: Assets/_Worduel/Addressables/IAPItems/Coins/MegaCoins.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Coin
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1c066f9e5888c4a4b9aa48e713e61dd6
-    m_Address: Assets/_Worduel/Addressables/IAPItems/Ads/RemoveAds.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Ads
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 23966d6936325414b88ca6ca3c3fc9e5
-    m_Address: Assets/_Worduel/Addressables/IAPItems/Coins/BigCoins.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Coin
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5494c1631916e7541b9b14aa29c79338
-    m_Address: Assets/_Worduel/Addressables/IAPItems/Coins/SmallCoins.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Coin
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 71de77350680d0a43bb07c46ee2deda4
-    m_Address: Assets/_Worduel/Addressables/IAPItems/Coins/MediumCoins.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Coin
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 72c8ecf2534f2fd448c7425a280c89b8
-    m_Address: Assets/_Worduel/Addressables/IAPItems/Bundles/AdventureBundle.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Bundle
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e258470f9d8ed3947855b45e188024a9
-    m_Address: Assets/_Worduel/Addressables/IAPItems/Bundles/UltimateBundle.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Bundle
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e5f85219b59a08e41b0a906b154e32ea
-    m_Address: Assets/_Worduel/Addressables/IAPItems/Bundles/StarterBundle.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Bundle
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f8e45c4e120a0284387177a1cc9001bc
-    m_Address: Assets/_Worduel/Addressables/IAPItems/Coins/BigCoins.asset
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Coin
-    FlaggedDuringContentUpdateRestriction: 0
+  m_SerializeEntries: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: a3880b8fb25b90a4cada257dda67b2f5, type: 2}
   m_SchemaSet:

@@ -91,11 +91,6 @@ MonoBehaviour:
     m_SerializedLabels:
     - Theme
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 88692c05b2f2a4440b300b12e4c280fc
-    m_Address: Assets/_Game/Scenes/Startup.unity
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 91b88172e63074a5f91e8b7512f21903
     m_Address: Assets/_Game/Sprites/Layer Lab/GUI Pro-CasualGame/ResourcesData/Sprites/Components/Icon_ItemIcons/512/Icon_Book.Png
     m_ReadOnly: 0
