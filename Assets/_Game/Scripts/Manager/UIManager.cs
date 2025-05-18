@@ -84,7 +84,6 @@ public class UIManager : SingletonPersistent<UIManager>
         {
             PlayerStatsManager.Instance.HasWonRound();
             HintCounter.Instance.SetStatsAtRound();
-            Notifier.Instance.SetStatsAtRound();
         }
 
         LoadingAnimation.Instance.AnimationLoading(0.5f, () =>

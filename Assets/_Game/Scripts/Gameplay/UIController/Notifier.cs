@@ -6,21 +6,12 @@ using UnityEngine.UI;
 
 public class Notifier : Singleton<Notifier>
 {
-    public int TimesUpAtRound { get; private set; }
-    public int TotalTimesUp { get; private set; }
-    public float AverageTimePercentUsedAtRound { get; private set; }
-    public float AverageTimePercentUsed { get; private set; }
-
     [SerializeField] private float _time;
     [SerializeField] private GameObject _progressBar;
     [SerializeField] private TextMeshProUGUI _notifyText;
     [SerializeField] private TypewriterByCharacter _typewriter;
 
     private Tween _currentTween;
-    private float _averagePlaytimeAtRound;
-    private float _averagePlaytime;
-    private int _turnsAtRound;
-    private int _totalTurns;
     private bool _isColorChanged;
     private bool _isFreeze;
 
@@ -110,12 +101,6 @@ public class Notifier : Singleton<Notifier>
         })
         .OnComplete(() =>
         {
-            if (GameFlowManager.Instance.IsPlayerTurn)
-            {
-                TotalTimesUp++;
-                CaculateAverageTimePercentUsed();
-            }
-
             Board.Instance.ResetUI();
             Board.Instance.ResetData();
             WordDisplay.Instance.UndisplayWordAndScore();
@@ -156,29 +141,5 @@ public class Notifier : Singleton<Notifier>
 
         _currentTween?.Kill();
         _progressBar.SetActive(false);
-    }
-
-    public void Reset()
-    {
-        _averagePlaytimeAtRound = _turnsAtRound = 0;
-
-        TotalTimesUp = TimesUpAtRound = 0;
-        AverageTimePercentUsedAtRound = AverageTimePercentUsed = 0;
-    }
-
-    public void SetStatsAtRound()
-    {
-        _averagePlaytimeAtRound = _averagePlaytime - _averagePlaytimeAtRound;
-        _turnsAtRound = _totalTurns - _turnsAtRound;
-
-        AverageTimePercentUsedAtRound = _averagePlaytimeAtRound / _turnsAtRound;
-        AverageTimePercentUsed = _averagePlaytime / _totalTurns;
-        TimesUpAtRound = TotalTimesUp - TimesUpAtRound;
-    }
-
-    public void CaculateAverageTimePercentUsed()
-    {
-        _totalTurns++;
-        _averagePlaytime += 1 - _progressBar.GetComponent<Image>().fillAmount;
     }
 }

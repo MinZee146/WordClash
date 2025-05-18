@@ -31,7 +31,6 @@ public class GameFlowManager : SingletonPersistent<GameFlowManager>
     {
         Timing.KillCoroutines("AI");
         HintCounter.Instance.SetStatsAtRound();
-        Notifier.Instance.SetStatsAtRound();
 
         if (Round == 1)
         {

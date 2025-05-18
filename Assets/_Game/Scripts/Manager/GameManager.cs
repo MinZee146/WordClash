@@ -27,11 +27,10 @@ public class GameManager : SingletonPersistent<GameManager>
         IsGameOver = false;
 
         GameFlowManager.Instance.StartGame();
-        BottomBar.Instance.SetSidePowerUpState(true);
+       
 
         PlayerStatsManager.Instance.ResetStats();
         HintCounter.Instance.Reset();
-        Notifier.Instance.Reset();
     }
 
     public void Replay()

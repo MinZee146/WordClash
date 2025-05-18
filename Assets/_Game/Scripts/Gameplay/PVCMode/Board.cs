@@ -317,7 +317,6 @@ public class Board : Singleton<Board>
         AudioManager.Instance.StopSideAudio();
 
         Utils.Log($"Player Selected: {_selectedWord} ({_currentScore})");
-        Notifier.Instance.CaculateAverageTimePercentUsed();
 
         Timing.RunCoroutine(PopAndRefresh());
     }
