@@ -351,7 +351,40 @@ public class TimeChallengeMode : Singleton<TimeChallengeMode>
     {
         var targetTile = TileList.FirstOrDefault(t => t.Column == targetColumn && t.Row == targetRow);
 
-        if (!targetTile) return false;
+        if (!targetTile)
+        {
+            var spawnRow = 9;
+
+            var obj = Instantiate(_tilePrefab, _board);
+            var rectTransform = obj.GetComponent<RectTransform>();
+
+            var hexWidth = _tilePrefab.GetComponent<RectTransform>().rect.width;
+            var hexHeight = _tilePrefab.GetComponent<RectTransform>().rect.height;
+
+            var spawnX = CalculateTileXPosition(tile.Column, spawnRow, hexWidth);
+            var spawnY = CalculateTileYPosition(spawnRow, hexHeight);
+            rectTransform.anchoredPosition = new Vector2(spawnX, spawnY);
+
+            obj.name = $"({spawnRow},{tile.Column})";
+
+            var newTile = obj.GetComponent<Tile>();
+            newTile.Column = tile.Column;
+            newTile.Row = spawnRow;
+            newTile.IsRowEven = false;
+            newTile.SetTileConfig(_configManager.GetRandomLetter());
+            newTile.Deselect();
+
+            TileList.Add(newTile);
+
+            newTile.transform.DOMove(tile.transform.position, 0.2f).SetEase(Ease.OutQuad);
+
+            newTile.Row = tile.Row;
+            newTile.Column = tile.Column;
+            newTile.IsRowEven = tile.IsRowEven;
+            newTile.name = $"({tile.Row},{tile.Column})";
+
+            return true;
+        }
 
         Pop(targetTile);
 
@@ -363,6 +396,20 @@ public class TimeChallengeMode : Singleton<TimeChallengeMode>
 
         return true;
     }
+
+
+    private float CalculateTileXPosition(int col, int row, float hexWidth)
+    {
+        var xPos = col * hexWidth * 1.02f;
+        if (row % 2 != 0) xPos += hexWidth / 2f;
+        return xPos - (ColsEven * hexWidth) / 2f + hexWidth * 0.5f;
+    }
+
+    private float CalculateTileYPosition(int row, float hexHeight)
+    {
+        return row * hexHeight * 0.775f - (Rows * hexHeight * 0.8f) / 2f + hexHeight * 0.55f + 10;
+    }
+
 
     private IEnumerator<float> RandomizeOneTile()
     {
