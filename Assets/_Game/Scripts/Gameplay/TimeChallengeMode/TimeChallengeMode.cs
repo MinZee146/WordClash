@@ -397,19 +397,17 @@ public class TimeChallengeMode : Singleton<TimeChallengeMode>
         return true;
     }
 
-
     private float CalculateTileXPosition(int col, int row, float hexWidth)
     {
         var xPos = col * hexWidth * 1.02f;
         if (row % 2 != 0) xPos += hexWidth / 2f;
-        return xPos - (ColsEven * hexWidth) / 2f + hexWidth * 0.5f;
+        return xPos - ColsEven * hexWidth / 2f + hexWidth * 0.5f;
     }
 
     private float CalculateTileYPosition(int row, float hexHeight)
     {
-        return row * hexHeight * 0.775f - (Rows * hexHeight * 0.8f) / 2f + hexHeight * 0.55f + 10;
+        return row * hexHeight * 0.775f - Rows * hexHeight * 0.8f / 2f + hexHeight * 0.55f + 10;
     }
-
 
     private IEnumerator<float> RandomizeOneTile()
     {
