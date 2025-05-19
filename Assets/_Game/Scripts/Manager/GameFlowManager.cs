@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using MEC;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameFlowManager : SingletonPersistent<GameFlowManager>
 {
@@ -31,7 +32,7 @@ public class GameFlowManager : SingletonPersistent<GameFlowManager>
     {
         Timing.KillCoroutines("AI");
 
-        if (Round == 1)
+        if (Round == 1 || SceneManager.GetActiveScene().name != "TimeChallengeMode")
         {
             NextRound();
         }

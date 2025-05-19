@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Febucci.UI;
+using MEC;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -169,7 +170,7 @@ public class Notifier : Singleton<Notifier>
         {
             var remainingTime = image.fillAmount * _time;
             _notifyText.text = $"{Mathf.CeilToInt(remainingTime)} seconds left!";
-            
+
             if (!_isColorChanged && image.fillAmount <= 0.1)
             {
                 _isColorChanged = true;
@@ -189,7 +190,10 @@ public class Notifier : Singleton<Notifier>
             TimeChallengeMode.Instance.ResetUI();
             TimeChallengeMode.Instance.ResetData();
             WordDisplay.Instance.UndisplayWordAndScore();
+
+            AudioManager.Instance.StopMusic();
             AudioManager.Instance.PlaySFX("TimeOut");
+            GameFlowManager.Instance.HandleGameOver();
         });
     }
 }
