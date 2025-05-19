@@ -70,7 +70,7 @@ public class TimeChallengeMode : Singleton<TimeChallengeMode>
     }
 
     #region GenerateBoard
-    private void GenerateBoard()
+    public void GenerateBoard()
     {
         TileList.Clear();
 
@@ -312,7 +312,7 @@ public class TimeChallengeMode : Singleton<TimeChallengeMode>
         ResetData();
 
         yield return Timing.WaitUntilDone(Timing.RunCoroutine(RandomizeOneTile()));
-        // yield return Timing.WaitUntilDone(Timing.RunCoroutine(GameManager.Instance.CheckForGameOver()));
+        yield return Timing.WaitUntilDone(Timing.RunCoroutine(GameManager.Instance.CheckForRefill()));
 
         UIManager.Instance.IsInteractable = true;
         GameUIController.Instance.ToggleHintAndConfirm();

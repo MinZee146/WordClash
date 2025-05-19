@@ -80,4 +80,21 @@ public class GameManager : SingletonPersistent<GameManager>
             GameFlowManager.Instance.HandleGameOver();
         }
     }
+
+    public IEnumerator<float> CheckForRefill()
+    {
+        WordFinder.Instance.FindAllWords();
+
+        while (WordFinder.Instance.IsFindingWords)
+        {
+            yield return Timing.WaitForOneFrame;
+        }
+
+        var needRefill = Board.Instance.FoundWords.Keys.Count == 0;
+        
+        if (needRefill)
+        {
+           TimeChallengeMode.Instance.GenerateBoard();
+        }
+    }
 }
