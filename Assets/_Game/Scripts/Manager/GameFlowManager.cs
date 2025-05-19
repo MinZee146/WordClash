@@ -32,7 +32,7 @@ public class GameFlowManager : SingletonPersistent<GameFlowManager>
     {
         Timing.KillCoroutines("AI");
 
-        if (Round == 1 || SceneManager.GetActiveScene().name != "TimeChallengeMode")
+        if (Round == 1 && SceneManager.GetActiveScene().name != "TimeChallengeMode")
         {
             NextRound();
         }

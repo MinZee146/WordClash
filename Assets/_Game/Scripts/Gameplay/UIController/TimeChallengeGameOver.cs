@@ -37,7 +37,7 @@ public class TimeChallengeGameOver : MonoBehaviour
 
     private void CoinsEarnedAnimation()
     {
-        var coins = int.Parse(_wordsCount.text)*10;
+        var coins = PlayerStatsManager.Instance.PlayerScore / 5;
 
         var sequence = DOTween.Sequence();
         sequence.Append(_coinsRewardRect.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBounce));

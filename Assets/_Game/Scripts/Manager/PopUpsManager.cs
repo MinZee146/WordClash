@@ -27,7 +27,8 @@ public class PopUpsManager : Singleton<PopUpsManager>
         AudioManager.Instance.PlaySFX("ButtonClick");
         UIManager.Instance.ToggleCurrency(setActive);
 
-        TogglePopUp(_gameOver, setActive,
+        TogglePopUp(SceneManager.GetActiveScene().name != "TimeChallengeMode" ?
+        _gameOver : _tCGameOver, setActive,
         onLoaded: (popUp) =>
         {
             _replayButton = popUp.transform.GetChild(1).GetComponent<Button>();
@@ -42,49 +43,28 @@ public class PopUpsManager : Singleton<PopUpsManager>
                 UIManager.Instance.LoadMenuScene();
             });
 
-            var playerStats = popUp.transform.GetChild(3);
-            playerStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = PlayerStatsManager.Instance.PlayerName;
-            playerStats.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = $"Best word: {PlayerStatsManager.Instance.GetPlayerBestWord()}";
+            if (SceneManager.GetActiveScene().name != "TimeChallengeMode")
+            {
+                var playerStats = popUp.transform.GetChild(3);
+                playerStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = PlayerStatsManager.Instance.PlayerName;
+                playerStats.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = $"Best word: {PlayerStatsManager.Instance.GetPlayerBestWord()}";
 
-            var opponentStats = popUp.transform.GetChild(4);
-            opponentStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = PlayerStatsManager.Instance.OpponentName;
-            opponentStats.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = $"Best word: {PlayerStatsManager.Instance.GetOpponentBestWord()}";
+                var opponentStats = popUp.transform.GetChild(4);
+                opponentStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = PlayerStatsManager.Instance.OpponentName;
+                opponentStats.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = $"Best word: {PlayerStatsManager.Instance.GetOpponentBestWord()}";
+            }
+            else
+            {
+                var playerStats = popUp.transform.GetChild(3);
+                playerStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = PlayerPrefs.GetString(GameConstants.PLAYER_PREFS_USERNAME);
+                playerStats.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = $"Best word: {PlayerStatsManager.Instance.GetPlayerBestWord()}";
+                playerStats.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = $"Words count: {PlayerStatsManager.Instance.WordsCount}";
+            }
         },
         onClosed: () =>
         {
             _replayButton = _homeButton = null;
         });
-    }
-    
-    public void ToggleTimeChallengeGOPopUp(bool setActive)
-    {
-        AudioManager.Instance.PlaySFX("ButtonClick");
-        UIManager.Instance.ToggleCurrency(setActive);
-
-        TogglePopUp(_tCGameOver, setActive,
-            onLoaded: (popUp) =>
-            {
-                _replayButton = popUp.transform.GetChild(1).GetComponent<Button>();
-                _replayButton.onClick.AddListener(() =>
-                {
-                    GameManager.Instance.Replay();
-                });
-
-                _homeButton = popUp.transform.GetChild(2).GetComponent<Button>();
-                _homeButton.onClick.AddListener(() =>
-                {
-                    UIManager.Instance.LoadMenuScene();
-                });
-
-                var playerStats = popUp.transform.GetChild(3);
-                playerStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = PlayerStatsManager.Instance.PlayerName;
-                playerStats.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = $"Best word: {PlayerStatsManager.Instance.GetPlayerBestWord()}";
-                playerStats.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = $"Words count: {PlayerStatsManager.Instance.WordsCount}";
-            },
-            onClosed: () =>
-            {
-                _replayButton = _homeButton = null;
-            });
     }
 
     public void TogglePowerupsPopUp(bool setActive)

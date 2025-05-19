@@ -33,24 +33,19 @@ public class GameManager : SingletonPersistent<GameManager>
 
     public void Replay()
     {
-        if (SceneManager.GetActiveScene().name == "TimeChallengeMode")
-        {
-            PopUpsManager.Instance.ToggleTimeChallengeGOPopUp(false);
-            LoadingAnimation.Instance.AnimationLoading(0.5f, () =>
-            {
-                NewGame();
-                TimeChallengeMode.Instance.NewGame();
-                LoadingAnimation.Instance.AnimationLoaded(0.5f, 0);
-            });
-            return;
-        }
-        
         PopUpsManager.Instance.ToggleGameOverPopUp(false);
-
         LoadingAnimation.Instance.AnimationLoading(0.5f, () =>
         {
-            NewGame();
-            Board.Instance.NewGame();
+            if (SceneManager.GetActiveScene().name == "TimeChallengeMode")
+            {
+                PlayerStatsManager.Instance.ResetStats();
+                TimeChallengeMode.Instance.NewGame();
+            }
+            else
+            {
+                NewGame();
+                Board.Instance.NewGame();
+            }
 
             LoadingAnimation.Instance.AnimationLoaded(0.5f, 0);
         });
@@ -90,11 +85,11 @@ public class GameManager : SingletonPersistent<GameManager>
             yield return Timing.WaitForOneFrame;
         }
 
-        var needRefill = Board.Instance.FoundWords.Keys.Count == 0;
-        
+        var needRefill = TimeChallengeMode.Instance.FoundWords.Keys.Count == 0;
+
         if (needRefill)
         {
-           TimeChallengeMode.Instance.GenerateBoard();
+            TimeChallengeMode.Instance.GenerateBoard();
         }
     }
 }
