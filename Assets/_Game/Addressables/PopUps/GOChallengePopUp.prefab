@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 7028867263034833563}
   - component: {fileID: 302531632416531279}
   - component: {fileID: 1034587059817029825}
-  - component: {fileID: 2291199741841553771}
+  - component: {fileID: 963165478041927627}
   m_Layer: 5
   m_Name: GOChallengePopUp
   m_TagString: Untagged
@@ -202,7 +202,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1.35
---- !u!114 &2291199741841553771
+--- !u!114 &963165478041927627
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,17 +211,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 2045558865995114970}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2973fc61272daa44a145e109d64b73a, type: 3}
+  m_Script: {fileID: 11500000, guid: bbf84b7296083df419de1c1d3a1e4ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _coinsRewardRect: {fileID: 2291155052735023916}
   _playerStatsRect: {fileID: 2898642916101762891}
-  _opponentStatsRect: {fileID: 0}
-  _winTrophyRect: {fileID: 0}
-  _loseTrophyRect: {fileID: 0}
   _coinIconRect: {fileID: 682166764998714752}
   _playerBestWord: {fileID: 1501853352039548835}
-  _opponentBestWord: {fileID: 0}
+  _wordsCount: {fileID: 5166003053473433375}
   _coinsEarnedText: {fileID: 8657127530384126731}
 --- !u!1 &3010162389681482782
 GameObject:

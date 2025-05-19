@@ -11,12 +11,13 @@ public class PlayerStatsManager : Singleton<PlayerStatsManager>
     [SerializeField] private TextMeshProUGUI _playerScore, _opponentScore;
 
     private string _playerBestWord, _opponentBestWord;
-    private int _playerBestScore, _opponentBestScore, _playerCurrentScore, _opponentCurrentScore;
+    private int _playerBestScore, _opponentBestScore, _playerCurrentScore, _opponentCurrentScore, _wordsCount;
 
     public string PlayerName => _playerName.text;
     public string OpponentName => _opponentName.text;
     public int PlayerScore => _playerCurrentScore;
     public int OpponentScore => _opponentCurrentScore;
+    public int WordsCount => _wordsCount;
 
     public void ResetStats()
     {
@@ -26,6 +27,7 @@ public class PlayerStatsManager : Singleton<PlayerStatsManager>
             _playerBestScore = 0;
             _playerBestWord = "";
             _playerScore.text = "0";
+            _wordsCount = 0;
             return;
         }
 
@@ -43,6 +45,7 @@ public class PlayerStatsManager : Singleton<PlayerStatsManager>
         if (GameFlowManager.Instance.IsPlayerTurn || SceneManager.GetActiveScene().name == "TimeChallengeMode")
         {
             Timing.RunCoroutine(UpdatePlayerScore(score));
+            _wordsCount++;
             if (score <= _playerBestScore) return;
             _playerBestScore = score;
             _playerBestWord = playerWord;

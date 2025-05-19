@@ -12,7 +12,7 @@ using UnityEngine.SceneManagement;
 
 public class PopUpsManager : Singleton<PopUpsManager>
 {
-    [SerializeField] private AssetReference _revealWord, _opponentPowerUp, _roundChange, _purchaseFailed, _purchaseCompleted, _theme, _dailyReward, _stats, _credits, _replaceLetter, _doubleReward, _moreHints, _instruction, _nameRegister, _avatar, _settings, _powerups, _gameOver;
+    [SerializeField] private AssetReference _revealWord, _opponentPowerUp, _roundChange, _purchaseFailed, _purchaseCompleted, _theme, _dailyReward, _stats, _credits, _replaceLetter, _doubleReward, _moreHints, _instruction, _nameRegister, _avatar, _settings, _powerups, _gameOver, _tCGameOver;
 
     private GameObject _currentPopUp, _subPopUp;
     private AsyncOperationHandle<GameObject> _currentHandle, _subHandle;
@@ -54,6 +54,37 @@ public class PopUpsManager : Singleton<PopUpsManager>
         {
             _replayButton = _homeButton = null;
         });
+    }
+    
+    public void ToggleTimeChallengeGOPopUp(bool setActive)
+    {
+        AudioManager.Instance.PlaySFX("ButtonClick");
+        UIManager.Instance.ToggleCurrency(setActive);
+
+        TogglePopUp(_tCGameOver, setActive,
+            onLoaded: (popUp) =>
+            {
+                _replayButton = popUp.transform.GetChild(1).GetComponent<Button>();
+                _replayButton.onClick.AddListener(() =>
+                {
+                    GameManager.Instance.Replay();
+                });
+
+                _homeButton = popUp.transform.GetChild(2).GetComponent<Button>();
+                _homeButton.onClick.AddListener(() =>
+                {
+                    UIManager.Instance.LoadMenuScene();
+                });
+
+                var playerStats = popUp.transform.GetChild(3);
+                playerStats.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = PlayerStatsManager.Instance.PlayerName;
+                playerStats.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = $"Best word: {PlayerStatsManager.Instance.GetPlayerBestWord()}";
+                playerStats.transform.GetChild(2).GetComponent<TextMeshProUGUI>().text = $"Words count: {PlayerStatsManager.Instance.WordsCount}";
+            },
+            onClosed: () =>
+            {
+                _replayButton = _homeButton = null;
+            });
     }
 
     public void TogglePowerupsPopUp(bool setActive)
