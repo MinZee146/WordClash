@@ -167,6 +167,9 @@ public class Notifier : Singleton<Notifier>
         .SetEase(Ease.Linear)
         .OnUpdate(() =>
         {
+            var remainingTime = image.fillAmount * _time;
+            _notifyText.text = $"{Mathf.CeilToInt(remainingTime)} seconds left!";
+            
             if (!_isColorChanged && image.fillAmount <= 0.1)
             {
                 _isColorChanged = true;

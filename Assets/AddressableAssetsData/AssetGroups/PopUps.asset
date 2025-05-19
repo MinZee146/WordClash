@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1ac171793582f474b81e95c0ec23965c
+    m_Address: Assets/_Game/Addressables/PopUps/GOChallengePopUp.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 43a194dc6c066224db7fdadf45fddb5f
     m_Address: Assets/_Game/Addressables/PopUps/NameRegisterPopup.prefab
     m_ReadOnly: 0
