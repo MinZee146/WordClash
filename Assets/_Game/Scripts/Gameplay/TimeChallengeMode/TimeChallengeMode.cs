@@ -24,7 +24,7 @@ public class TimeChallengeMode : Singleton<TimeChallengeMode>
     private List<GameObject> _lineList = new();
     private TileConfigManager _configManager = new();
 
-    private string _currentWord, _selectedWord, _playerScore;
+    private string _currentWord, _selectedWord;
     private int _currentScore;
 
     private EventSystem _eventSystem;

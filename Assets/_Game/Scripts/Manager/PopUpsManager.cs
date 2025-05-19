@@ -109,7 +109,7 @@ public class PopUpsManager : Singleton<PopUpsManager>
             });
 
             var homeButton = popUp.transform.GetChild(2);
-            homeButton.gameObject.SetActive(SceneManager.GetActiveScene().name == "Gameplay");
+            homeButton.gameObject.SetActive(SceneManager.GetActiveScene().name == "Gameplay" || SceneManager.GetActiveScene().name == "TimeChallengeMode");
             homeButton.GetComponent<Button>().onClick.AddListener(() =>
             {
                 Timing.KillCoroutines();
