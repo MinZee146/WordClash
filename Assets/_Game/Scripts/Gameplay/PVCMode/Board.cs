@@ -44,8 +44,6 @@ public class Board : Singleton<Board>
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().name == "TimeChallengeMode") return;
-
         Initialize();
     }
 

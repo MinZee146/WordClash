@@ -2320,7 +2320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6a35abb696d11488da5eefd55e0393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _time: 45
+  _time: 120
   _progressBar: {fileID: 807948553}
   _notifyText: {fileID: 1776329042}
   _typewriter: {fileID: 1776329046}
@@ -3045,7 +3045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1216122353
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4019,7 +4019,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1610306697
 RectTransform:
   m_ObjectHideFlags: 0

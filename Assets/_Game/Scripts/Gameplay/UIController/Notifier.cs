@@ -163,11 +163,11 @@ public class Notifier : Singleton<Notifier>
         image.DOFade(1, 0);
         image.fillOrigin = (int)Image.OriginHorizontal.Left;
 
-        _currentTween = DOTween.To(() => image.fillAmount, x => image.fillAmount = x, 0, 15)
+        _currentTween = DOTween.To(() => image.fillAmount, x => image.fillAmount = x, 0, _time)
         .SetEase(Ease.Linear)
         .OnUpdate(() =>
         {
-            if (!_isColorChanged && image.fillAmount <= 0.3)
+            if (!_isColorChanged && image.fillAmount <= 0.1)
             {
                 _isColorChanged = true;
 

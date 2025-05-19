@@ -54,11 +54,9 @@ public class TimeChallengeMode : Singleton<TimeChallengeMode>
         {
             return;
         }
-        else
-        {
-            PlayerPrefs.SetInt(GameConstants.PLAYER_PREFS_FIRST_LOGIN, 0);
-            PopUpsManager.Instance.ToggleInstructionPopUp(true);
-        }
+
+        PlayerPrefs.SetInt(GameConstants.PLAYER_PREFS_FIRST_LOGIN, 0);
+        PopUpsManager.Instance.ToggleInstructionPopUp(true);
     }
 
     private void OnConfigsLoaded()
@@ -357,7 +355,7 @@ public class TimeChallengeMode : Singleton<TimeChallengeMode>
 
         Pop(targetTile);
 
-        targetTile.transform.DOMove(tile.transform.position, 0.1f, false);
+        targetTile.transform.DOMove(tile.transform.position, 0.1f);
         targetTile.Row = tile.Row;
         targetTile.Column = tile.Column;
         targetTile.IsRowEven = tile.IsRowEven;
