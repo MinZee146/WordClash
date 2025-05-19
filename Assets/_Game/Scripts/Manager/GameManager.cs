@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using MEC;
+using UnityEngine.SceneManagement;
 
 public class GameManager : SingletonPersistent<GameManager>
 {
@@ -32,15 +33,25 @@ public class GameManager : SingletonPersistent<GameManager>
 
     public void Replay()
     {
+        if (SceneManager.GetActiveScene().name == "TimeChallengeMode")
+        {
+            PopUpsManager.Instance.ToggleTimeChallengeGOPopUp(false);
+            LoadingAnimation.Instance.AnimationLoading(0.5f, () =>
+            {
+                NewGame();
+                TimeChallengeMode.Instance.NewGame();
+                LoadingAnimation.Instance.AnimationLoaded(0.5f, 0);
+            });
+            return;
+        }
+        
         PopUpsManager.Instance.ToggleGameOverPopUp(false);
-        RewardManager.Instance.TotalAdDuration = 0;
 
         LoadingAnimation.Instance.AnimationLoading(0.5f, () =>
         {
             NewGame();
             Board.Instance.NewGame();
 
-            var totalMatchPlayed = PlayerPrefs.GetInt(GameConstants.PLAYER_PREFS_TOTAL_MATCH_PLAYED, 0);
             LoadingAnimation.Instance.AnimationLoaded(0.5f, 0);
         });
     }
@@ -67,6 +78,23 @@ public class GameManager : SingletonPersistent<GameManager>
             yield return Timing.WaitForSeconds(1f);
 
             GameFlowManager.Instance.HandleGameOver();
+        }
+    }
+
+    public IEnumerator<float> CheckForRefill()
+    {
+        WordFinder.Instance.FindAllWords();
+
+        while (WordFinder.Instance.IsFindingWords)
+        {
+            yield return Timing.WaitForOneFrame;
+        }
+
+        var needRefill = Board.Instance.FoundWords.Keys.Count == 0;
+        
+        if (needRefill)
+        {
+           TimeChallengeMode.Instance.GenerateBoard();
         }
     }
 }

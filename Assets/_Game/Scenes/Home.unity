@@ -398,6 +398,12 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
+  _tCGameOver:
+    m_AssetGUID: 1ac171793582f474b81e95c0ec23965c
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
 --- !u!114 &36449371
 MonoBehaviour:
   m_ObjectHideFlags: 0
