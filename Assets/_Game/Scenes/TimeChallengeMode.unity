@@ -2320,7 +2320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6a35abb696d11488da5eefd55e0393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _time: 30
+  _time: 45
   _progressBar: {fileID: 807948553}
   _notifyText: {fileID: 1776329042}
   _typewriter: {fileID: 1776329046}
