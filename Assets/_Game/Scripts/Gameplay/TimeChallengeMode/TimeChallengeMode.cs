@@ -282,9 +282,9 @@ public class TimeChallengeMode : Singleton<TimeChallengeMode>
     {
         if (!GameDictionary.Instance.CheckWord(_selectedWord)) return;
         AudioManager.Instance.StopSideAudio();
-
-        Utils.Log($"Player Selected: {_selectedWord} ({_currentScore})");
-
+        
+        Notifier.Instance.PauseCountdown();
+        
         Timing.RunCoroutine(PopAndRefresh());
     }
 
@@ -316,6 +316,8 @@ public class TimeChallengeMode : Singleton<TimeChallengeMode>
 
         UIManager.Instance.IsInteractable = true;
         GameUIController.Instance.ToggleHintAndConfirm();
+        
+        Notifier.Instance.ResumeCountdown();
     }
 
     private IEnumerator<float> PopSelectedTiles()

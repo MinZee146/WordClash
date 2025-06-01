@@ -7,16 +7,5 @@ public class GameConfigs : ScriptableObject
     public double AIDifficulty;
     public int InitialHints;
     public int InitialCoins;
-    public int CoinsPerAd;
     public int CoinsPerGame;
-
-    [Header("Misc")]
-    public bool CheatsEnabled;
-    public bool InternetCheck;
-
-    [Header("Rating")]
-    public int RatingShowAtMatch;
-
-    [Header("Ads")]
-    public int AdsStartFromMatch;
 }

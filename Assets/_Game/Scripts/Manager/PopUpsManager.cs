@@ -416,28 +416,6 @@ public class PopUpsManager : Singleton<PopUpsManager>
         });
     }
 
-    public void TogglePurchaseCompletedPopUp(bool setActive, Action onClose = null)
-    {
-        TogglePopUp(_purchaseCompleted, setActive,
-        onLoaded: (popUp) =>
-        {
-            popUp.GetComponentInChildren<Button>().onClick.AddListener(() =>
-            {
-                TogglePurchaseCompletedPopUp(false);
-                onClose?.Invoke();
-            });
-        });
-    }
-
-    public void TogglePurchaseFailedPopUp(bool setActive)
-    {
-        TogglePopUp(_purchaseFailed, setActive,
-        onLoaded: (popUp) =>
-        {
-            popUp.GetComponentInChildren<Button>().onClick.AddListener(() => TogglePurchaseFailedPopUp(false));
-        });
-    }
-
     public void TogglePopUp(AssetReference ar, bool setActive, Action<GameObject> onLoaded = null, Action onClosed = null)
     {
         if (SceneManager.GetActiveScene().name == "Gameplay")

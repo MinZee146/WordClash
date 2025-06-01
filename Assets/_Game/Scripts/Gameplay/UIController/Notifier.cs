@@ -192,6 +192,7 @@ public class Notifier : Singleton<Notifier>
             WordDisplay.Instance.UndisplayWordAndScore();
 
             AudioManager.Instance.StopMusic();
+            AudioManager.Instance.StopSideAudio();
             AudioManager.Instance.PlaySFX("TimeOut");
             GameFlowManager.Instance.HandleGameOver();
         });
